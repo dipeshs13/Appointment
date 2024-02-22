@@ -1,8 +1,5 @@
 <?php
-class database_connection{
-    // public function connected(){
-    //     return $this->connect();
-    // }
+class dbh_connection{
     protected function connect(){
         try{
             $host = 'localhost';
@@ -12,14 +9,14 @@ class database_connection{
             $pdo = new PDO("mysql:host=$host;dbname=$dbname",$username,$password);
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             // echo "connect successfuly";
+            return $pdo;
         }
         catch(PDOException $e){
             die(''.$e->getMessage());
         }
     }
 }
-// $connection  = new database_connection();
-// $connection->connected();
+
 
 
 ?>

@@ -1,7 +1,5 @@
 <?php
-include("../includes/dbh.inc.php");
-
-class Signup extends database_connection{
+class Signup extends dbh_connection{
     public function setUser($fullName,$userName,$email,$address,$phone,$password,$dateofBirth){
       $query = 'INSERT INTO users (u_fullname,u_username,u_email,u_address,u_phone,u_password,u_dob) VALUES (?,?,?,?,?,?,?)';
       $stmt = $this->connect()->prepare($query);

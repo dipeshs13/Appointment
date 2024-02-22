@@ -21,6 +21,29 @@ class Signup_controller extends Signup{
     $this->confirmPassword = $confirmPassword;
     $this->dateofBirth = $dateofBirth;
    }
+   public function signupUser(){
+    if($this->emptyInput()==false){
+      header('location:../index.php?error=emptyInput');
+      exit();
+    }
+    if($this->invalidUsername()==false){
+      header('location:../index.php?error=invalidusername');
+      exit();
+    }
+    if($this->invalidEmail()==false){
+      header('location:../index.php?error=invalidEmail');
+      exit();
+    }
+    if($this->pwdMatch()==false){
+      header('location:../index.php?error=passworddoesnotmatch');
+      exit();
+    }
+    if($this->userCheck()==false){
+      header('location:../index.php?error=Useralreadyexist');
+      exit();
+    }
+    $this->setUser($this->fullName,$this->userName,$this->email,$this->address,$this->phone,$this->password,$this->dateofBirth);
+   }
    private function emptyInput(){
     $result = true;
     if(empty($this->fullName) || empty($this->userName) || empty($this->email) || empty($this->address) 
@@ -31,7 +54,7 @@ class Signup_controller extends Signup{
    }
 
    public function invalidUsername(){
-    $result = false;
+    $result = true;
     $pattern = '/^[a-zA-Z0-9_]{5,}$/';
     if(!preg_match($pattern,$this->userName)){
         $result = false;
@@ -40,15 +63,30 @@ class Signup_controller extends Signup{
    }
 
    private function invalidEmail(){
-    $result = false;
+    $result = true;
     if(!filter_var($this->email, FILTER_VALIDATE_EMAIL)){
         $result = false;
    }
    return $result;
 }
+
+private function pwdMatch(){
+  $result = true;
+  if(($this->password) != ($this->confirmPassword)){
+    $result = false;
+  }
+  return $result;
+}
    
 
+private function userCheck(){
+  $result = true;
+  if(!$this->checkUser($this->userName,$this->email)){
+    $result = false;
 
+  }
+  return $result;
+}
 
 
 
