@@ -45,8 +45,8 @@
         <?php
             session_start();
            
-          if(isset($_SESSION['userid'])){
-           echo  '<li><a href="#">'.$_SESSION['user_login'].'</a></li>
+          if(isset($_SESSION['user_login'])){
+           echo  '<li><a href="#">'.$_SESSION['name'].'</a></li>
              <li><a href="logout.php">Logout</a></li>';
           }
           else{ 
