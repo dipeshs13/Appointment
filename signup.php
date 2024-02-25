@@ -1,11 +1,13 @@
 <link rel="stylesheet" href="css/signup.css">
-<link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
-  <link rel="stylesheet" href="/resources/demos/style.css">
-<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+<!-- <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css"> -->
+<!-- <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script> -->
 <div class="contain">
     <div class="signup">
-        <h1>Register (As User)</h1>
+        <span class="home"><a href="index.php">Home</a></span>
+        <h3 class="header">Hello!</h3>
+        <span class="small">Please signup to continue</span>
         <form action="includes/signup.inc.php" method="POST">
             <div class="form_container">
                 <div class="form_control">
@@ -39,6 +41,9 @@
                 <div class="form_control">
                     <label for="date">DOB</label>
                     <input type="date" name="dateOfBirth" id="datepicker" placeholder="Enter your dob">
+                </div>
+                <div class="form_control">
+                    <span class="link">Already have an account?<a href="login.php">Login In</a></span>
                 </div>
             </div>
             <div class="button_container">

@@ -16,19 +16,17 @@ body{
     top: 0;
     left: 0;
     bottom: 0;
-    width: 110px;
+    width: 260px;
     height: 100vh;
     padding: 0 1.7rem;
     color: #fff;
     overflow: hidden;
-    transition: all 0.5s linear;
-    background: rgba(113, 99, 186, 255);
+    /* transition: all 0.5s linear; */
+    /* background: rgba(113, 99, 186, 255); */
+    background-color: green;
 
 }
-.sidebar:hover{
-    width: 240px;
-    transition: 0.5s;
-}
+
 .logo{
     height: 80px;
     padding: 16px;
@@ -97,7 +95,7 @@ body{
 }
 
 .header_title{
-    color: rgba(113,99,186,255);
+    color:green;
 }
 
 .user_info{
@@ -122,6 +120,7 @@ body{
     font-size: 1.2rem;
     cursor: pointer;
     transform: all 0.5s ease-out;
+    color: green;
 }
 .search_box i:hover{
     transform: scale(1.2);
@@ -140,12 +139,12 @@ body{
 }
 
 .main_title{
-    color: rgba(113, 99, 186, 255);
+    color: green;
     padding-bottom: 10px;
     font-size: 15px;
 }
-.payment_card{
-    background: rgb(229, 223, 223);
+.appointment_card{
+    background: green;
     border-radius: 10px;
     padding: 1.2rem;
     width: 290px;
@@ -156,7 +155,7 @@ body{
     transition: all 0.5s ease-in-out;
 }
 
-.payment_card:hover{
+.appointment_card:hover{
     transform: translateY(-5px);
 }
 
@@ -166,18 +165,20 @@ body{
     align-items: center;
     margin-bottom: 20px;
 }
-.amount{
+.appointment{
     display: flex;
     flex-direction: column;
 }
 .title{
-    font-size: 12px;
-    font-weight: 200;
+    font-size: 20px;
+    /* font-weight: ; */
+    color: #fff;
 }
-.amount_value{
+.appointment_value{
     font-size: 24px;
     font-family:'Courier New', Courier, monospace;
     font-weight: 600;
+    color: #fff;
 }
 .icon{
     color: #fff;
@@ -196,7 +197,7 @@ body{
     font-family: 'Courier New', Courier, monospace;
 }
 
-/* color css*/
+/* color css
 .light-red{
     background: rgb(251, 233, 233);
 }
@@ -220,7 +221,7 @@ body{
 }
 .dark-blue{
     background: blue;
-}
+} */
 
 /* Tabular  */
 .tabular{
@@ -238,7 +239,7 @@ table{
     border-collapse: collapse;
 }
 thead{
-    background: rgba(113, 99, 186, 255);
+    background: green;
     color: #fff;
 }
 th{

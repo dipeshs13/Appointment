@@ -46,22 +46,28 @@
             session_start();
            
           if(isset($_SESSION['user_login'])){
-           echo  '<li><a href="#">'.$_SESSION['name'].'</a></li>
-             <li><a href="logout.php">Logout</a></li>';
+           echo  '
+           <div class="dropdown">
+           <li><a href="#"  class="login">'.$_SESSION['name'].'</a></li>
+           </div>
+           <div class="dropdown">
+             <li><a href="logout.php"  class="login">Logout</a></li>
+             </div>
+             
+             ';
+            
+
           }
           else{ 
             echo '
-         <div class="dropdown">Login
-          <ul class="dropdown-items">
-            <li id="user"><a href="login.php">User</a></li>
-            <li id="doctor"><a href="includes/doctor_login.php">Doctor</a></li>
-          </ul>
+         <div class="dropdown">
+            <a href="login.php" class="login">Login</a>
         </div>
         
         <div class="dropdown">Register
           <ul class="dropdown-items">
             <li id="user"><a href="signup.php">User</a></li>
-            <li id="doctor"><a href="includes/doctor_signup.php">Doctor</a></li>
+            <li id="doctor"><a href="doctorsignup.php">Doctor</a></li>
           </ul>
         </div>';
           }

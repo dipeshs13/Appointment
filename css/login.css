@@ -9,7 +9,7 @@
     
 }
 body{
-    background-color:#FFFBDF ;
+    background-color:#fafafa ;
 }
 .login{
     max-width: 300px;
@@ -49,8 +49,8 @@ input {
     font-size: 15px;
 }
 button{
-    background: transparent;
-    border: 2px solid black;
+    /* background: transparent; */
+    /* border: 2px solid black; */
     padding: 5px 20px;
     border-radius: 8px;
     transform: 0.4s ease;
@@ -60,9 +60,28 @@ button{
     text-align: center;
     height: 40px;
     font-size: 20px;
+    background-color: green;
+    color: #fff;
+    border-radius: 90px;
 }
 button:hover{
     cursor: pointer;
     transform: scale(1.1);
     border: 2px solid black;
+    color: #fff;
+}
+.home a{
+    text-decoration: none;
+    color: green;
+    font-size: 25px;
+}
+.link a{
+    text-decoration: none;
+    color: #387ADF;
+}
+.header{
+    font-size: 25px;
+}
+.small{
+    font-size: 20px;
 }

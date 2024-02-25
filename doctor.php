@@ -15,49 +15,51 @@
     <ul class="menu">
       <li class="active">
         <a href="">
-          <i class="fas fa-tachometer-alt"></i>
+          <!-- <i class="fas fa-tachometer-alt"></i> -->
           <span>Dashboard</span>
         </a>
       </li>
       <li>
         <a href="">
-          <i class="fas fa-user"></i>
+          <!-- <i class="fas fa-user"></i> -->
           <span>Profile</span>
         </a>
       </li>
       <li>
         <a href="">
-          <i class="fas fa-chart-bar"></i>
-          <span>Statistics</span>
+          <!-- <i class="fa-solid fa-calendar-check"></i> -->
+          <span>Appointments</span>
         </a>
       </li>
       <li>
         <a href="">
-          <i class="fas fa-briefcase"></i>
-          <span>Careers</span>
+          <!-- <i class="fas fa-briefcase"></i> -->
+          <!-- <i class="fa-solid fa-check"></i> -->
+          <span>Confirm</span>
         </a>
       </li>
       <li>
         <a href="">
-          <i class="fas fa-question-circle"></i>
-          <span>FAQ</span>
+          <!-- <i class="fas fa-question-circle"></i> -->
+          <!-- <i class="fa-solid fa-clock-rotate-left"></i> -->
+          <span>Pending</span>
         </a>
       </li>
-      <li>
+      <!-- <li>
         <a href="">
           <i class="fas fa-star"></i>
           <span>Testominals</span>
         </a>
-      </li>
+      </li> -->
       <li>
         <a href="">
-          <i class="fas fa-cog"></i>
+          <!-- <i class="fas fa-cog"></i> -->
           <span>Settings</span>
         </a>
       </li>
       <li class="logout">
         <a href="" >
-          <i class="fas fa-sign-out-alt"></i>
+          <!-- <i class="fas fa-sign-out-alt"></i> -->
           <span>Logout</span>
         </a>
       </li>
@@ -67,7 +69,7 @@
   <div class="main_content">
     <div class="header">
       <div class="header_title">
-        <span>Primary</span>
+        <span>Doctor</span>
         <h2>Dashboard</h2>
       </div>
       <div class="user_info">
@@ -83,67 +85,73 @@
     <div class="card_container">
       <h3 class="main_title">Today's date</h3>
       <div class="card">
-        <div class="payment_card light-red">
+        <div class="appointment_card">
           <div class="card_header">
-            <div class="amount">
+            <div class="appointment">
               <span class="title">
-                Payment amount
+                Total Appointment
               </span>
-              <span class="amount_value">
-                $500.00
+              <span class="appointment_value">
+                30 appointment
               </span>
             </div>
-            <i class="fas fa-dollar-sign icon">
+            <!-- <i class="fas fa-dollar-sign icon">
+            </i> -->
+            <!-- <i class="fas fa-users icon dark-green"> -->
             </i>
           </div>
-          <span class="card_detail">
+          <!-- <span class="card_detail">
             **** **** **** 3484
-          </span>
+          </span> -->
         </div>
 
-        <div class="payment_card light-purple">
+        <div class="appointment_card">
           <div class="card_header">
-            <div class="amount">
+            <div class="appointment">
               <span class="title">
-                Payment order
+                Confirm Appointment
               </span>
-              <span class="amount_value">
-                $200.00
+              <span class="appointment_value">
+                10 appointment
               </span>
             </div>
-            <i class="fas fa-list icon dark-purple">
+            <!-- <i class="fas fa-list icon dark-purple">
+            </i> -->
+            <!-- <i class="fas fa-check icon dark-blue"> -->
             </i>
           </div>
-          <span class="card_detail">
+          <!-- <span class="card_detail">
             **** **** **** 5544
-          </span>
+          </span> -->
         </div>
 
-        <div class="payment_card light-green">
+        <div class="appointment_card">
           <div class="card_header">
-            <div class="amount">
+            <div class="appointment">
               <span class="title">
-                Payment customer
+                Pending Appointment
               </span>
-              <span class="amount_value">
-                $350.00
+              <span class="appointment_value">
+                5 pending
               </span>
             </div>
-            <i class="fas fa-users icon dark-green">
+            <!-- <i class="fas fa-users icon dark-green">
+            </i> -->
+            <!-- <i class="fas fa-list icon dark-purple"> -->
             </i>
           </div>
-          <span class="card_detail">
+          <!-- <span class="card_detail">
             **** **** **** 8896
-          </span>
+          </span> -->
         </div>
 
-        <div class="payment_card light-blue">
+        <!-- <div class="appointment_card light-blue">
           <div class="card_header">
-            <div class="amount">
+            <div class="appointment">
               <span class="title">
                 Payment proceed
               </span>
-              <span class="amount_value">
+              <span class="appointment_value">
                 $150.00
               </span>
             </div>
@@ -153,22 +161,22 @@
           <span class="card_detail">
             **** **** **** 5544
           </span>
-        </div>
+        </div> -->
 
       </div>
     </div>
 
     <div class="tabular">
-      <h3 class="main_title">Finance data</h3>
+      <h3 class="main_title">Appointment data</h3>
       <div class="table_container">
         <table>
           <thead>
             <tr>
               <th>Date</th>
-              <th>Transaction Type</th>
-              <th>Description</th>
-              <th>Amount</th>
-              <th>Category</th>
+              <th>Name</th>
+              <th>Phone</th>
+              <th>Appointment Date</th>
+              <th>Appointment Time</th>
               <th>Status</th>
               <th>Action</th>
             </tr>
@@ -176,12 +184,12 @@
             <tbody>
               <tr>
                 <td>
-                  2023-05-01
+                  2024-02-20
                 </td>
-                <td>Expenses</td>
-                <td>Office Supplies</td>
-                <td>$250</td>
-                <td>Office Expenses</td>
+                <td>Dipesh Kumar Shrestha</td>
+                <td>9852829419</td>
+                <td>2024-02-26</td>
+                <td>5:00pm - 6:00pm</td>
                 <td>Pending</td>
                 <td><button>Edit</button></td>
               </tr>

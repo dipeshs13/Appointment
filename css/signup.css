@@ -7,16 +7,17 @@
     max-width: 900px;
     margin: 0 auto;
     
+    
 }
 body{
-    background-color:#FFFBDF ;
+    background-color:#fafafa ;
 }
 .signup{
     max-width: 600px;
     padding: 20px;
     background-color: white;
     margin: 0 auto;
-    margin-top: 80px;
+    margin-top: 50px;
     box-shadow: 4px 3px 5px rgba(1,1,1,0.1);
     border-radius: 10px;
     border: 2px solid black;
@@ -26,6 +27,7 @@ body{
     display: grid;
     grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
     gap: 20px;
+    
 }
 
 .form_control{
@@ -53,17 +55,40 @@ input {
     display: flex;
     justify-content: center;
     margin-top: 20px;
+    
 }
 button{
     background: transparent;
-    border: 2px solid black;
+    /* border: 2px solid black; */
     padding: 10px 10px;
     border-radius: 8px;
     transform: 0.4s ease;
+    background-color: green;
+    color: #fff;
+    border-radius: 90px;
 }
 
 button:hover{
     cursor: pointer;
     transform: scale(1.1);
     border: 2px solid black;
+}
+.home a{
+    text-decoration: none;
+    color: green;
+    font-size: 25px;
+}
+.link a{
+    text-decoration: none;
+    color: #387ADF;
+}
+.header{
+    font-size: 25px;
+}
+.small{
+    font-size: 20px;
+}
+
+.control{
+    margin-top: 30px;
 }

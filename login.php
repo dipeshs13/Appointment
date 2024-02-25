@@ -1,7 +1,9 @@
     <link rel="stylesheet" href="css/login.css">
     <div class="contain">
         <div class="login">
-            <h1>Login Form</h1>
+        <span class="home"><a href="index.php">Home</a></span>
+        <h3 class="header">Hello!</h3>
+        <span class="small">Please login to continue</span>
             <form action="includes/login.inc.php" method="POST">
                 <div class="form_container">
                     <div class="form_control">
@@ -12,6 +14,9 @@
                         <label for="password">Password</label>
                         <input type="password" name="password" id="password" placeholder="Enter password">
                     </div>
+                    <div class="form_control">
+                    <span class="link">Don't have an account?<a href="index.php">Register</a></span>
+                </div>
                 </div>
                 <div class="button_container">
                     <button type="submit" name="submit">Login</button>
