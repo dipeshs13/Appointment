@@ -15,7 +15,7 @@
                         <input type="password" name="password" id="password" placeholder="Enter password">
                     </div>
                     <div class="form_control">
-                    <span class="link">Don't have an account?<a href="index.php">Register</a></span>
+                    <span class="link">Don't have an account?<a href="index.php">Register Here</a></span>
                 </div>
                 </div>
                 <div class="button_container">

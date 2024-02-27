@@ -8,7 +8,7 @@
         <span class="home"><a href="index.php">Home</a></span>
         <h3 class="header">Hello!</h3>
         <span class="small">Please signup to continue</span>
-        <form action="includes/signup.inc.php" method="POST">
+        <form action="includes/doctor_signup.inc.php" method="POST" enctype="multipart/form-data">
             <div class="form_container">
                 <div class="form_control">
                     <label for="firstname">First Name</label>
@@ -44,24 +44,24 @@
                 </div>
                 <div class="form_control">
                     <label for="category">Category</label>
-                    <input type="password" name="category" id="category" placeholder="Enter your category..">
+                    <input type="text" name="category" id="category" placeholder="Enter your category..">
                 </div>
                 <div class="form_control">
                     <label for="hospital">Clinics/Hospital name</label>
-                    <input type="password" name="hospital" id="hospital" placeholder="Enter your clinics/hospital name..">
+                    <input type="text" name="hospital" id="hospital" placeholder="Enter your clinics/hospital name..">
                 </div>
                 <div class="form_control">
                     <label for="location">Clinics/Hospital Location</label>
-                    <input type="password" name="location" id="location" placeholder="Enter location..">
+                    <input type="text" name="location" id="location" placeholder="Enter location..">
                 </div>
 
                 <div class="form_control">
                     <label for="date">DOB</label>
-                    <input type="date" name="dateOfBirth" id="datepicker" placeholder="Enter your dob..">
+                    <input type="date" name="dateofBirth" id="datepicker" placeholder="Enter your dob..">
                 </div>
                 <div class="form_control">
                     <label for="file">Certificate</label>
-                    <input type="file" name="file" id="file">
+                    <input type="file" name="uploadfile" id="file">
                 </div>
                 <div class="control">
                     <label for="gender">Gender:</label>
@@ -70,8 +70,6 @@
 
                     <input type="radio" id="female" name="gender" value="female">
                     <label for="female">Female</label>
-
-                    </select>
                 </div>
 
                 <div class="form_control">

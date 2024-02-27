@@ -1,18 +1,18 @@
 <?php
 session_start();
 class Login extends dbh_connection{
-    public function getUser($userName,$password){
+    public function getUser($userName,$password,){
       $query = 'SELECT * FROM users WHERE u_username = ? OR u_email = ?';
       $stmt = $this->connect()->prepare($query);
 
       
 
-      if(!$stmt->execute([$userName,$password])){
+      if(!$stmt->execute([$userName,$userName])){
         header("location: ../index.php?error=stmtfailed");
         exit();
       }
       if($stmt->rowCount() == 0){
-        header('location: ../includes/login.inc.php?error=usernotfound');
+        header('location: ../login.php?error=usernotfound');
         exit();
       } 
       else if($stmt->rowCount() > 0){
