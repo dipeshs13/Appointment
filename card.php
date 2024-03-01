@@ -4,7 +4,7 @@
       <p class="speclaist">Specialist</p>
       <p class="name">Name:Name Here</p>
       <p>Available</p>
-      <button class="book">Book Now</button>
+      <button class="book" >Book Now</button>
     </div>
 
     <div class="card" id="card-2">
