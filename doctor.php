@@ -57,10 +57,14 @@
           <span>Settings</span>
         </a>
       </li>
+      <?php
+     session_start();
+     if(isset($_SESSION['doctorlogin'])){
+      echo '
       <li class="logout">
         <a href="" >
           <!-- <i class="fas fa-sign-out-alt"></i> -->
-          <span>Logout</span>
+          <span><a href="logout.php">Logout</a></span>
         </a>
       </li>
     </ul>
@@ -78,10 +82,11 @@
           <i class="fa-solid fa-search"></i>
           <input type="text" placeholder="Search"/>
         </div>
-        <img src="images/doctor.png" alt="">
+        <img src='. $_SESSION['doctorimg'].'alt="">
         </div>
-    </div>
-
+    </div>';
+     }
+?>
     <div class="card_container">
       <h3 class="main_title">Today's date</h3>
       <div class="card">

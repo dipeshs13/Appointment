@@ -1,0 +1,83 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.book_container{
+    padding: 30px;
+}
+.content{
+    /* border:2px solid black; */
+    min-height: 80%;
+    border-radius: 50px;
+    box-shadow: 0px 4px 15px 3px rgba(0,0,0,0.1);
+}
+.book_content{
+    display: flex;
+    /* justify-content: space-evenly; */
+    /* flex-direction: row; */
+    /* border: 2px solid black; */
+    margin-left: 25%;
+    margin-top: 40px;
+
+}
+.doctor_img{
+    margin-top: 50px;
+}
+.info{
+    margin-left: 20px;
+    margin-top: 50px;
+    line-height: 40px;
+    font-size: 20px;
+}
+.appointment{
+    padding: 10px;
+    border: none;
+    border-radius: 90px;
+    background-color: green;
+    color: #fff;
+}
+.appointment:hover{
+    border: 2px solid black;
+
+}
+.review{
+    /* border: 2px solid black; */
+    padding: 0px 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+.review_form{
+    /* border: 2px solid black; */
+    margin: 10px;
+    padding: 20px;
+}
+label{
+    display: block;
+    margin-bottom: 5px;
+    font-size: 30px;
+    margin-left: 20px;
+}
+
+textarea{
+    width: 100%;
+    display: block;
+    padding: 0 50px;
+    border-radius: 30px;
+    /* height: 10px; */
+}
+.review_form button{
+    margin-top: 5px;
+    border: none;
+    padding: 10px 30px;
+    background-color: green;
+    color: #fff;
+    border-radius: 90px;
+    margin-left: 85%;
+    
+}
+
+#review_section h2{
+    text-align: center;
+}

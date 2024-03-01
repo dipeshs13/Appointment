@@ -60,8 +60,11 @@
           }
           else{ 
             echo '
-         <div class="dropdown">
-            <a href="login.php" class="login">Login</a>
+         <div class="dropdown"> Login
+            <ul class="dropdown-items">
+            <li id="user"><a href="login.php">User</a></li>
+            <li id="doctor"><a href="doctorlogin.php">Doctor</a></li>
+          </ul>
         </div>
         
         <div class="dropdown">Register
