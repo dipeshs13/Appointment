@@ -12,7 +12,7 @@
             <p>Clinic name: Nayabazar Clinic</p>
             <p>Clinic Address: Nayabazar-16, Kathmandu</p>
             <p>Specialties: Dermatologists </p>
-            <button type="appointment" class="appointment"> Set appointment</button>
+            <button type="appointment" class="appointment"><a href="appointment.php">set appointment</a></button>
            </div>
         </div>
         <div>
@@ -30,3 +30,4 @@
             </ul>
         </div>
 </div>
+<script src="js/book.js"></script>

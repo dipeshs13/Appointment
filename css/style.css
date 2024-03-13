@@ -16,7 +16,6 @@
 }
 
 .card{
-  
   text-align: center;
   height: 90%;
   width: 50%;
@@ -44,9 +43,9 @@ background: linear-gradient(171deg, rgba(254,254,255,1) 0%, rgba(255,255,255,1) 
 .card > p{
     line-height: 20px;
 }
-.card > .book{
-    margin-top: 40px;
-    width: 100px;
+/* .card > .book{
+    margin-top: 50px;
+    width: 200px;
     height: 40px;
     outline: none;
     border: none;
@@ -54,9 +53,26 @@ background: linear-gradient(171deg, rgba(254,254,255,1) 0%, rgba(255,255,255,1) 
     transform: 0.4s ease;
     background-color: green;
     color: white;
+    cursor: pointer;
+    padding: 10px 20px;
+    
 }
 
 .book:hover{
     transform: scale(1.1);
     border: 2px solid black;
-} 
+}  */
+
+.card > a{
+   position: relative;
+   top: 30px;
+   /* border: 2px solid black; */
+   padding: 10px 20px;
+   border-radius: 90px;
+   background-color: green;
+   color: #fff;
+}
+.card > a:hover{
+    transform: scale(1.1);
+    border: 2px solid black;
+}

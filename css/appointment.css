@@ -1,0 +1,43 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.container{
+    /* border: 2px solid red; */
+    height: 50vh;
+    max-width: 600px;
+    margin: 20px auto;
+    box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+
+}
+.container>h2{
+    text-align: center;
+}
+form{
+    /* border: 2px solid black; */
+    margin-top: 20px;
+    font-size: 20px;
+    text-align: center;
+}
+form>input{
+    /* border: 2px solid black; */
+    border: 2px solid black;
+    width: 20%;
+    border-radius: 5px;
+    cursor: pointer;
+    
+}
+#book{
+    width: 100px;
+    height: 25px;
+    border: none;
+    border-radius: 90px;
+    background-color: green;
+    color: #fff;
+    cursor: pointer;
+}
+#book:hover{
+    border: 2px solid black;
+
+}

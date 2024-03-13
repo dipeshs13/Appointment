@@ -43,6 +43,10 @@
     border: 2px solid black;
 
 }
+.appointment>a{
+    text-decoration: none;
+    color: #fff;
+}
 .review{
     /* border: 2px solid black; */
     padding: 0px 30px;
