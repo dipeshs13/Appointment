@@ -4,12 +4,21 @@
 require_once('dbh.inc.php');
 
 if (isset($_POST['submit'])) {
+
+    // Certificate
     $filename = $_FILES["uploadfile"]["name"];
     $tempname = $_FILES["uploadfile"]["tmp_name"];
     $folder = "../image/" . $filename; //for storing file and saving that file in folder we create this folder(name and tempname will store)
 // echo $folder;
     move_uploaded_file($tempname, $folder);
+  
 
+    // Doctor image
+    $imagename = $_FILES['profile']['name'];
+    $tempimage = $_FILES['profile']['tmp_name'];
+    $imagefolder = "../doctorimage/ " . $imagename;
+    move_uploaded_file($tempimage,$imagefolder);
+    
     $firstname = $_POST['firstname'];
     $lastname = $_POST['lastname'];
     $username = $_POST['username'];
@@ -27,7 +36,7 @@ if (isset($_POST['submit'])) {
     include "../classes/doctor_signup.classes.php";
     include "../classes/doctor_signup.controller.php";
 
-    $signup = new doctorController($firstname,$lastname,$username,$email,$address,$phone,$password,$cPassword,$category,$hName,$hlocation,$dateofbirth,$folder,$gender);
+    $signup = new doctorController($firstname,$lastname,$username,$email,$address,$phone,$password,$cPassword,$category,$hName,$hlocation,$dateofbirth,$folder,$gender,$imagefolder);
 
     $signup->signupDoctor();
     header('location:../index.php?success');

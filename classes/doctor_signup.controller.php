@@ -16,8 +16,9 @@ class doctorController extends doctorSignup{
     private $dateofbirth;
     private $folder;
     private $gender;
+    private $doctorimage;
 
-    public function __construct($firstname,$lastname,$username,$email,$address,$phone,$password,$cPassword,$category,$hName,$hlocation, $dateofbirth, $folder, $gender){
+    public function __construct($firstname,$lastname,$username,$email,$address,$phone,$password,$cPassword,$category,$hName,$hlocation, $dateofbirth, $folder, $gender, $doctorimage){
         $this->firstname = $firstname;
         $this->lastname = $lastname;
         $this->username = $username;
@@ -32,6 +33,7 @@ class doctorController extends doctorSignup{
         $this->dateofbirth = $dateofbirth;
         $this->folder = $folder;
         $this->gender = $gender;
+        $this->doctorimage = $doctorimage;
     }
 
     public function signupDoctor(){
@@ -57,14 +59,14 @@ class doctorController extends doctorSignup{
             exit();
         }
 
-    $this->setDoctor($this->firstname,$this->lastname,$this->username,$this->email,$this->address,$this->phone,$this->password,$this->category,$this->hName,$this->hlocation,$this->dateofbirth,$this->folder,$this->gender);
+    $this->setDoctor($this->firstname,$this->lastname,$this->username,$this->email,$this->address,$this->phone,$this->password,$this->category,$this->hName,$this->hlocation,$this->dateofbirth,$this->folder,$this->gender,$this->doctorimage);
 
     }
     private function empty(){
         $result = true;
         if(empty($this->firstname) || empty($this->lastname) || empty($this->username) || empty($this->email) || empty($this->address) || empty($this->phone) || empty($this->password) || empty($this->cPassword) || 
        empty($this->category) || empty($this->hName) || empty($this->hlocation) || empty($this->dateofbirth) || empty($this->folder) ||
-        empty($this->gender)){
+        empty($this->gender) || empty($this->doctorimage)){
 
             $result = false;
         }

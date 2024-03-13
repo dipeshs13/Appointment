@@ -67,9 +67,13 @@
                     <label for="gender">Gender:</label>
                     <input type="radio" id="male" name="gender" value="male">
                     <label for="male">Male</label>
-
+                    
                     <input type="radio" id="female" name="gender" value="female">
                     <label for="female">Female</label>
+                </div>
+                <div class="form_control">
+                    <label for="profile">Upload Your Image</label>
+                    <input type="file" name="profile" id="profile">
                 </div>
 
                 <div class="form_control">

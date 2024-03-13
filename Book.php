@@ -1,17 +1,46 @@
-<link rel="stylesheet" href="css/book.css">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor Profile</title>
+    <link rel="stylesheet" href="css/book.css">
+</head>
+<body>
+<?php
+ require_once('includes/dbh.inc.php');
+ include ('classes/doctor_data.php');
+?>
+
 <div class="book_container">
+    <?php
+
+     if(isset($_GET['doctor_id'])){
+      $doctorid = $_GET['doctor_id'];
+      $decoded_doctorid = base64_decode($doctorid);
+      $doctor_info = $d_data->get_Doctor_info($decoded_doctorid);
+    //   echo var_dump($doctor_info);
+     
+    if($doctor_info){
+        echo '
     <div class="content">
         <div class="book_content">
-            <div class="doctor_img">
-            <img src="images/doctor.png" alt="">
+            <div class="doctor_img"> ';
+            foreach ($doctor_info as $key => $doctor) {
+                echo '
+            <img src="doctorimages/'.$doctor['d_image'].'" alt="">
             </div>
-           <div class="info">
-            <p>Name: Dipesh Kumar Shrestha</p>
-            <p>Email: dipesh@test.com</p>
-            <p>Contact: 983439377</p>
-            <p>Clinic name: Nayabazar Clinic</p>
-            <p>Clinic Address: Nayabazar-16, Kathmandu</p>
-            <p>Specialties: Dermatologists </p>
+            <div class="info">
+                <p>Name:'.' '.$doctor['d_firstname'].' '.$doctor['d_lastname'].'</p>
+                <p>Email:'.' '.$doctor['d_email'].'</p>
+                <p>Contact:'.' '.$doctor['d_phone'].'</p>
+                <p>Clinic name:'.' '.$doctor['d_cilinics'].'</p>
+                <p>Clinic Address:'.' '.$doctor['d_clocation'].'</p>
+                <p>Specialties:'.' '.$doctor['d_category'].'</p>
+                <p>Gender:'.' '.$doctor['d_gender'].'</p>';
+            }
+            }
+            echo '
             <button type="appointment" class="appointment"><a href="appointment.php">set appointment</a></button>
            </div>
         </div>
@@ -29,5 +58,9 @@
              
             </ul>
         </div>
-</div>
-<script src="js/book.js"></script>
+</div>';
+}
+?>
+      <script src="js/book.js"></script>
+</body>
+</html>

@@ -8,12 +8,12 @@
 foreach ($doctors as $key => $doctor){?>
 
     <div class="card" id="card-<?php echo ($key+1);?>">
-    <img src="image/<?php echo $doctor['d_imagesource'];?>" alt="">
-    <p class="name"><?php echo ($doctor['d_firstname']  . ' '.$doctor['d_lastname']); ?></p>
-    <p class="speclaist">Specialist:<?php echo $doctor['d_category'];?></p>
-    
+    <img src="doctorimage/<?php echo $doctor['d_image'];?>" alt="">
+    <p class="speclaist"><?php echo $doctor['d_category'];?></p>
+    <p class="name">Dr.<?php echo ($doctor['d_firstname']  . ' '.$doctor['d_lastname']); ?></p>
+    <?php $encoded_doctorid = base64_encode($doctor['d_id'])?>
     <!-- <button class="book" >Book Now</button> -->
-    <a href="Book.php?doctor_id=<?php echo $doctor['d_id'];?>">Book Now</a>
+    <a href="Book.php?doctor_id=<?php echo $encoded_doctorid;?>">Book Now</a>
     </div>
     
   
