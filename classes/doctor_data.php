@@ -33,12 +33,21 @@ class doctorData extends dbh_connection{
         $doctorData = $stmt->fetchAll();
         return $doctorData;
     }
+    public function get_categories_info($categories){
+        $query = 'SELECT * FROM doctors WHERE d_category=?';
+        $stmt = $this->connect()->prepare($query);
+        if(!$stmt->execute([$categories])){
+            header('location:../index.php?stmtfailed');
+            exit();
+        }
+        $doctorData = $stmt->fetchAll();
+        return $doctorData;
+    }
 }
     
 
 
 $d_data = new doctorData();
-$doctors = $d_data->get_Doctor_Data();
 
 
 

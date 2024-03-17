@@ -26,7 +26,7 @@
       </div>
 
       <div class="h1">
-        <h1>Doctor Appointment System</h1>
+        <h1><a href="index.php">Doctor Appointment System</a></h1>
       </div>
 
       <div class="search">
@@ -42,7 +42,7 @@
             <div class="dropdown dropdown_cate">Category
                 <ul class="dropdown-items">
                   <?php
-                   $categories = $d_data->get_Doctor_Data();
+                   $categories = $d_data->get_categories();
                    if($categories){
                     foreach ($categories as $key => $category) {
                        $doctorcategory = $category['d_category'];
