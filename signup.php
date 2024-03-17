@@ -4,15 +4,19 @@
 <!-- <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script> -->
 <div class="contain">
-    <div class="signup">
+    <div class="signup signup_user">
         <span class="home"><a href="index.php">Home</a></span>
         <h3 class="header">Hello!</h3>
         <span class="small">Please signup to continue</span>
         <form action="includes/signup.inc.php" method="POST">
             <div class="form_container">
                 <div class="form_control">
-                    <label for="fullname">Full Name</label>
-                    <input type="text" name="fullname" id="fullname" placeholder="Enter Full Name">
+                    <label for="firstname">First Name</label>
+                    <input type="text" name="firstname" id="firstname" placeholder="Enter First Name">
+                </div>
+                <div class="form_control">
+                    <label for="lastname">Last Name</label>
+                    <input type="text" name="lastname" id="lastname" placeholder="Enter Last Name">
                 </div>
                 <div class="form_control">
                     <label for="username">Username</label>
@@ -46,7 +50,7 @@
                     <span class="link">Already have an account?<a href="login.php">Login In</a></span>
                 </div>
             </div>
-            <div class="button_container">
+            <div class="button_container user_button">
                 <button type="submit" name="submit">Register Now</button>
             </div>
         </form>

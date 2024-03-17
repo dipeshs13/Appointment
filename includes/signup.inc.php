@@ -3,7 +3,8 @@
 require_once('dbh.inc.php');
 
 if(isset($_POST['submit'])){
-    $fullName = $_POST['fullname'];
+    $firstname = $_POST['firstname'];
+    $lastname = $_POST['lastname'];
     $userName = $_POST['username'];
     $email = $_POST['email'];
     $address = $_POST['address'];
@@ -17,7 +18,7 @@ if(isset($_POST['submit'])){
      include "../classes/signup.classes.php";
      include "../classes/signup.controller.php";
 
-     $sign_up = new Signup_controller($fullName,$userName,$email,$address,$phone,$password,$confirmPassword,$dateofBirth);
+     $sign_up = new Signup_controller($firstname, $lastname,$userName,$email,$address,$phone,$password,$confirmPassword,$dateofBirth);
      
 
      $sign_up->signupUser();

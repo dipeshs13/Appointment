@@ -10,7 +10,7 @@ class doctorlogin_controller extends doctorLogin {
 
     public function loginDoctor(){
         if($this->empty_Input()==false){
-            header('location: ../doctorlogin.php');
+            header('location: ../doctorlogin.php?error=emptyInput');
             exit();
         }
     $this->getDoctor($this->username,$this->password);

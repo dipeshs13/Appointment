@@ -1,6 +1,7 @@
 <?php
 class Signup_controller extends Signup{
-   private $fullName;
+   private $firstname;
+   private $lastname;
    private $userName;
    private $email;
    private $address;
@@ -10,9 +11,10 @@ class Signup_controller extends Signup{
 
    private $dateofBirth;
 
-   public function __construct($fullName,$userName,$email,$address,$phone,$password,$confirmPassword,$dateofBirth){
+   public function __construct($firstname,$lastname,$userName,$email,$address,$phone,$password,$confirmPassword,$dateofBirth){
       
-    $this->fullName = $fullName;
+    $this->firstname = $firstname;
+    $this->lastname = $lastname;
     $this->userName = $userName;
     $this->email = $email;
     $this->address = $address;
@@ -42,11 +44,11 @@ class Signup_controller extends Signup{
       header('location:../index.php?error=Useralreadyexist');
       exit();
     }
-    $this->setUser($this->fullName,$this->userName,$this->email,$this->address,$this->phone,$this->password,$this->dateofBirth);
+    $this->setUser($this->firstname,$this->lastname,$this->userName,$this->email,$this->address,$this->phone,$this->password,$this->dateofBirth);
    }
    private function emptyInput(){
     $result = true;
-    if(empty($this->fullName) || empty($this->userName) || empty($this->email) || empty($this->address) 
+    if(empty($this->firstname) || empty($this->lastname) || empty($this->userName) || empty($this->email) || empty($this->address) 
     || empty($this->phone) || empty($this->password) || empty($this->confirmPassword) || empty($this->dateofBirth)){
       $result = false;
     }

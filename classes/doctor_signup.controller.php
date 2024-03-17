@@ -17,8 +17,10 @@ class doctorController extends doctorSignup{
     private $folder;
     private $gender;
     private $doctorimage;
+    private $experienced;
+    private $qualification;
 
-    public function __construct($firstname,$lastname,$username,$email,$address,$phone,$password,$cPassword,$category,$hName,$hlocation, $dateofbirth, $folder, $gender, $doctorimage){
+    public function __construct($firstname,$lastname,$username,$email,$address,$phone,$password,$cPassword,$category,$hName,$hlocation, $dateofbirth, $folder, $gender, $doctorimage, $experienced,$qualification){
         $this->firstname = $firstname;
         $this->lastname = $lastname;
         $this->username = $username;
@@ -34,6 +36,9 @@ class doctorController extends doctorSignup{
         $this->folder = $folder;
         $this->gender = $gender;
         $this->doctorimage = $doctorimage;
+        $this->experienced = $experienced;
+        $this->qualification = $qualification;
+        
     }
 
     public function signupDoctor(){
@@ -59,14 +64,14 @@ class doctorController extends doctorSignup{
             exit();
         }
 
-    $this->setDoctor($this->firstname,$this->lastname,$this->username,$this->email,$this->address,$this->phone,$this->password,$this->category,$this->hName,$this->hlocation,$this->dateofbirth,$this->folder,$this->gender,$this->doctorimage);
+    $this->setDoctor($this->firstname,$this->lastname,$this->username,$this->email,$this->address,$this->phone,$this->password,$this->category,$this->hName,$this->hlocation,$this->dateofbirth,$this->folder,$this->gender,$this->doctorimage,$this->experienced,$this->qualification);
 
     }
     private function empty(){
         $result = true;
         if(empty($this->firstname) || empty($this->lastname) || empty($this->username) || empty($this->email) || empty($this->address) || empty($this->phone) || empty($this->password) || empty($this->cPassword) || 
-       empty($this->category) || empty($this->hName) || empty($this->hlocation) || empty($this->dateofbirth) || empty($this->folder) ||
-        empty($this->gender) || empty($this->doctorimage)){
+       empty($this->category) || empty($this->hName) || empty($this->hlocation) || empty($this->dateofbirth) || empty($this->folder) ||   empty($this->gender) || empty($this->doctorimage) || empty($this->experienced)
+       || empty($this->qualification)){
 
             $result = false;
         }

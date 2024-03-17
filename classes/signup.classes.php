@@ -1,12 +1,12 @@
 <?php
 class Signup extends dbh_connection{
-    public function setUser($fullName,$userName,$email,$address,$phone,$password,$dateofBirth){
-      $query = 'INSERT INTO users (u_fullname,u_username,u_email,u_address,u_phone,u_password,u_dob) VALUES (?,?,?,?,?,?,?)';
+    public function setUser($firstname,$lastname,$userName,$email,$address,$phone,$password,$dateofBirth){
+      $query = 'INSERT INTO users (u_firstname,u_lastname,u_username,u_email,u_address,u_phone,u_password,u_dob) VALUES (?,?,?,?,?,?,?,?)';
       $stmt = $this->connect()->prepare($query);
 
       $hashed_Password = password_hash($password, PASSWORD_DEFAULT);
 
-      if(!$stmt->execute([$fullName,$userName,$email,$address,$phone,$hashed_Password,$dateofBirth])){
+      if(!$stmt->execute([$firstname,$lastname,$userName,$email,$address,$phone,$hashed_Password,$dateofBirth])){
         header('location:../index.php?error=stmtfailed');
         exit();
       }

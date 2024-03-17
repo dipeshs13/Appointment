@@ -22,7 +22,12 @@ body{
     margin-top: 10px;
     box-shadow: 4px 3px 5px rgba(1,1,1,0.1);
     border-radius: 10px;
-    border: 2px solid black;
+    /* border: 2px solid black; */
+    height: 100vh;
+}
+.signup_user{
+    /* background-color: green; */
+    height: 65vh;
 }
 .form_container{
     margin-top: 30px;
@@ -68,12 +73,18 @@ button{
     background-color: green;
     color: #fff;
     border-radius: 90px;
+    position: relative;
+    bottom: 30px;
 }
 
 button:hover{
     cursor: pointer;
     transform: scale(1.1);
     border: 2px solid black;
+}
+.user_button{
+    position: relative;
+    top: 35px;
 }
 .home a{
     text-decoration: none;
@@ -85,7 +96,7 @@ button:hover{
     /* background-color: blue;
     border: 2px solid red; */
     position: relative;
-    top: 30px;
+    top: 0x;
 }
 .link a{
     text-decoration: none;
@@ -103,4 +114,16 @@ button:hover{
 
 .control{
     margin-top: 30px;
+}
+
+#category,#qualification{
+    padding: 6px 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 15px;
+}
+
+.gender{
+    position: relative;
+    bottom: 30px;
 }

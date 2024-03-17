@@ -22,6 +22,17 @@ class doctorData extends dbh_connection{
         $doctorData = $stmt->fetchAll();
         return $doctorData;
     }
+    
+    public function get_categories(){
+        $query = 'SELECT DISTINCT d_category FROM doctors';
+        $stmt = $this->connect()->prepare($query);
+        if(!$stmt->execute([])){
+            header('location:../index.php?stmtfailed');
+            exit();
+        }
+        $doctorData = $stmt->fetchAll();
+        return $doctorData;
+    }
 }
     
 

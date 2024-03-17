@@ -44,7 +44,25 @@
                 </div>
                 <div class="form_control">
                     <label for="category">Category</label>
-                    <input type="text" name="category" id="category" placeholder="Enter your category..">
+                    <select name="category" id="category">
+                    <option value="" selected disabled hidden>Select Category</option>
+                        <option value="Dermatologists" >Dermatologists</option>
+                        <option value="Endocrinologists">Endocrinologists</option>
+                        <option value="Gastroenterologists">Gastroenterologists</option>
+                        <option value="Hematologists">Hematologists</option>
+                        <option value="Internists">Internists</option>
+                    </select>
+                </div>
+                <div class="form_control">
+                    <label for="qualification">Qualification</label>
+                    <select name="qualification" id="qualification">
+                    <option value="" selected disabled hidden>Select Qualification</option>
+                        <option value="Bachelor of Medicine, Bachelor of Surgery - MBBS" >Bachelor of Medicine, Bachelor of Surgery - MBBS</option>
+                        <option value="Master of Surgery - MS">Master of Surgery - MS</option>
+                        <option value="Doctor of Medicine - MD">Doctor of Medicine - MD</option>
+                        <option value="Bachelor of Physiotherapy - BPT">Bachelor of Physiotherapy - BPT</option>
+                        <option value="Bachelor of Siddha Medicine and Surgery - BSMS">Bachelor of Siddha Medicine and Surgery - BSMS</option>
+                    </select>
                 </div>
                 <div class="form_control">
                     <label for="hospital">Clinics/Hospital name</label>
@@ -52,28 +70,32 @@
                 </div>
                 <div class="form_control">
                     <label for="location">Clinics/Hospital Location</label>
-                    <input type="text" name="location" id="location" placeholder="Enter location..">
+                    <input type="text" name="location" id="location" placeholder="Enter clinics/hospital location..">
                 </div>
 
                 <div class="form_control">
-                    <label for="date">DOB</label>
+                    <label for="date">DateOfBirth:</label>
                     <input type="date" name="dateofBirth" id="datepicker" placeholder="Enter your dob..">
                 </div>
                 <div class="form_control">
                     <label for="file">Certificate</label>
                     <input type="file" name="uploadfile" id="file">
                 </div>
-                <div class="control">
+                <div class="form_control">
+                    <label for="experienced">Experienced Year</label>
+                    <input type="text" name="experienced" id="experienced" placeholder="Enter your Experienced year..">
+                </div>
+                <div class="form_control">
+                    <label for="profile">Upload Your Image</label>
+                    <input type="file" name="profile" id="profile">
+                </div>
+                <div class="control gender">
                     <label for="gender">Gender:</label>
                     <input type="radio" id="male" name="gender" value="male">
                     <label for="male">Male</label>
                     
                     <input type="radio" id="female" name="gender" value="female">
                     <label for="female">Female</label>
-                </div>
-                <div class="form_control">
-                    <label for="profile">Upload Your Image</label>
-                    <input type="file" name="profile" id="profile">
                 </div>
 
                 <div class="form_control">

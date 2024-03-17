@@ -1,7 +1,4 @@
-<?php
- require_once('includes/dbh.inc.php');
- include ('classes/doctor_data.php');
-?>
+
 
 <div class="container">
 <?php
@@ -19,7 +16,7 @@ foreach ($doctors as $key => $doctor){
     </div>
     ';
   }
-  // <!-- <button class="book" >Book Now</button> -->
+  
 }
   ?>
   
@@ -28,8 +25,8 @@ foreach ($doctors as $key => $doctor){
     echo '  
       <div class="card" id="card-'. $i.'">
         <img src="images/doctor.png" alt="">
-        <p class="name">Name:Name Here</p>
         <p class="specilaist">Specialist</p>
+        <p class="name">Name:Name Here</p>
         <!-- <button class="book" >Book Now</button> -->
         <a href="Book.php">Book Now</a>
       </div>

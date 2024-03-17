@@ -20,8 +20,9 @@ class Login extends dbh_connection{
         $result = $stmt->fetch(PDO::FETCH_ASSOC);
         $checkpassword = password_verify($password,$result['u_password']);
         if($checkpassword) {
-          $_SESSION['user_login'] = $result['u_username'];
-          $_SESSION['name'] = $result['u_fullname'];
+          $_SESSION['user_id'] = $result['u_id'];
+          $_SESSION['user_name'] = $result['u_username'];
+          $_SESSION['user_firstname'] = $result['u_firstname'];
           header('location: ../index.php?success');
           exit();
 
@@ -34,6 +35,7 @@ class Login extends dbh_connection{
 
       
 }
+
 
 }
 

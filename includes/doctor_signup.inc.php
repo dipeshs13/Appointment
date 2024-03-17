@@ -32,11 +32,14 @@ if (isset($_POST['submit'])) {
     $hlocation = $_POST['location'];
     $dateofbirth = $_POST['dateofBirth'];
     $gender = $_POST['gender'];
+    $experienced = $_POST['experienced'];
+    $qualification = $_POST['qualification'];
+
 
     include "../classes/doctor_signup.classes.php";
     include "../classes/doctor_signup.controller.php";
 
-    $signup = new doctorController($firstname,$lastname,$username,$email,$address,$phone,$password,$cPassword,$category,$hName,$hlocation,$dateofbirth,$folder,$gender,$imagefolder);
+    $signup = new doctorController($firstname,$lastname,$username,$email,$address,$phone,$password,$cPassword,$category,$hName,$hlocation,$dateofbirth,$folder,$gender,$imagefolder,$experienced,$qualification);
 
     $signup->signupDoctor();
     header('location:../index.php?success');

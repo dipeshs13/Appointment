@@ -27,6 +27,8 @@
         <div class="book_content">
             <div class="doctor_img"> ';
             foreach ($doctor_info as $key => $doctor) {
+                // $encoded_doctor_id = urlencode($doctor['d_id']);
+                $doctorid = $doctor['d_id'];
                 echo '
             <img src="doctorimages/'.$doctor['d_image'].'" alt="">
             </div>
@@ -37,11 +39,11 @@
                 <p>Clinic name:'.' '.$doctor['d_cilinics'].'</p>
                 <p>Clinic Address:'.' '.$doctor['d_clocation'].'</p>
                 <p>Specialties:'.' '.$doctor['d_category'].'</p>
-                <p>Gender:'.' '.$doctor['d_gender'].'</p>';
+                <p>Gender:'.' '.$doctor['d_gender'].'</p>
+                <a href="appointment.php?doctor_id='.$doctorid.'">Set appointment</a>';
             }
             }
             echo '
-            <button type="appointment" class="appointment"><a href="appointment.php">set appointment</a></button>
            </div>
         </div>
         <div>
