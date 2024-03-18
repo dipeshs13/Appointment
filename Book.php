@@ -41,13 +41,14 @@
                 <p>Clinic/Hospital Address:' . ' ' . $doctor['d_clocation'] . '</p>
                 <p>Specialties:' . ' ' . $doctor['d_category'] . '</p>
                 <p>Gender:' . ' ' . $doctor['d_gender'] . '</p>
-                <a href="appointment.php?doctor_id=' . $doctorid . '">Set appointment</a>';
+                <a href="appointment.php?doctor_id=' . $doctorid . '">Set appointment</a>
+                </div>
+                </div>  
+                </div>';
                 }
             }
             echo '
-           </div>
-        </div>
-        <div>
+        
             <div class="review">
             <form action="" class="review_form" id="reviewForm">
                 <label for="review">Post a review</label>
@@ -59,12 +60,13 @@
         </div>
         <div id="review_section">
             <h2>Reviews</h2>
-            <ul id="review_list">
-            <p id="review"> </p>
+            <div class="review_list">
+           <p class="name">Dipesh Kumar SHrestha <span id="Date">On Mar 18 9:35AM</span></p>
+            <p id="review">Hello my name is Dipesh Kumar Shrestha </p>
              
-            </ul>
-        </div>
-</div>';
+            </div>
+        </div>';
+
         }
         ?>
         <script src="js/book.js"></script>

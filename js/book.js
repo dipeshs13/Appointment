@@ -12,15 +12,15 @@ textarea.addEventListener('focus', size_increase);
 textarea.addEventListener('blur', size_decrease);
 
 
-let reviewForm = document.getElementById('reviewForm');
+// let reviewForm = document.getElementById('reviewForm');
 
-reviewForm.addEventListener('click', function(event) {
-    event.preventDefault(); 
+// reviewForm.addEventListener('click', function(event) {
+//     event.preventDefault(); 
 
-    const reviewText = document.getElementById('search').value;
+//     const reviewText = document.getElementById('search').value;
 
     
     
-    let para = document.getElementById('review');
-    para.innerText = reviewText;
-});
+//     let para = document.getElementById('review');
+//     para.innerText = reviewText;
+// });
