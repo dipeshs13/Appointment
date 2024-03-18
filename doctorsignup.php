@@ -1,8 +1,12 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor SIgnup</title>
+</head>
+<body>
 <link rel="stylesheet" href="css/signup.css">
-<!-- <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
-  <link rel="stylesheet" href="/resources/demos/style.css"> -->
-<!-- <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script> -->
 <div class="contain">
     <div class="signup">
         <span class="home"><a href="index.php">Home</a></span>
@@ -53,9 +57,9 @@
                         <option value="Internists">Internists</option>
                     </select>
                 </div>
-                <div class="form_control">
+                <div class="form_control" >
                     <label for="qualification">Qualification</label>
-                    <select name="qualification" id="qualification">
+                    <select name="qualification" id="qualification" >
                     <option value="" selected disabled hidden>Select Qualification</option>
                         <option value="Bachelor of Medicine, Bachelor of Surgery - MBBS" >Bachelor of Medicine, Bachelor of Surgery - MBBS</option>
                         <option value="Master of Surgery - MS">Master of Surgery - MS</option>
@@ -108,3 +112,5 @@
         </form>
     </div>
 </div>
+</body>
+</html>

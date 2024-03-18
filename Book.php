@@ -47,17 +47,18 @@
                 </div>';
                 }
             }
-            echo '
+        }
+        ?>
         
-            <div class="review">
-            <form action="" class="review_form" id="reviewForm">
-                <label for="review">Post a review</label>
-                <textarea name="review_text" id="search" cols="80" rows="3"></textarea>
+        <div class="review">
+    <form action="includes/review.inc.php" method="POST" class="review_form" id="reviewForm">
+        <input type="hidden" name="doctor_id" value="<?php echo isset($_GET['doctor_id']) ? $_GET['doctor_id'] : ''; ?>">
+        <label for="review">Post a review</label>
+        <textarea name="review_text" id="search" cols="80" rows="3"></textarea>
+        <button type="submit" class="btn">POST</button>
+    </form>
+</div>
 
-                
-                <button type="submit" class="btn"> POST</button>
-            </form>
-        </div>
         <div id="review_section">
             <h2>Reviews</h2>
             <div class="review_list">
@@ -65,10 +66,10 @@
             <p id="review">Hello my name is Dipesh Kumar Shrestha </p>
              
             </div>
-        </div>';
+        </div>
 
-        }
-        ?>
+        
+        
         <script src="js/book.js"></script>
 </body>
 

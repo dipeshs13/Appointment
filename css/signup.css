@@ -4,7 +4,9 @@
     padding: 0;
     box-sizing: border-box;
     font-family: "Roboto", sans-serif;
+    
 }
+
 .contain{
     max-width: 900px;
     margin: 0 auto;
@@ -16,7 +18,7 @@ body{
 }
 .signup{
     max-width: 600px;
-    padding: 20px;
+    padding: 20px 40px;
     background-color: white;
     margin: 0 auto;
     margin-top: 10px;
@@ -61,7 +63,7 @@ input {
 .button_container{
     display: flex;
     justify-content: center;
-    margin-top: 20px;
+    margin-top: 40px;
     
 }
 button{
