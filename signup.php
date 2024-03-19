@@ -1,8 +1,13 @@
-<link rel="stylesheet" href="css/signup.css">
-<!-- <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
-  <link rel="stylesheet" href="/resources/demos/style.css"> -->
-<!-- <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup</title>
+    <link rel="stylesheet" href="css/signup.css">
+</head>
+<body>
+
 <div class="contain">
     <div class="signup signup_user">
         <span class="home"><a href="index.php">Home</a></span>
@@ -12,11 +17,11 @@
             <div class="form_container">
                 <div class="form_control">
                     <label for="firstname">First Name</label>
-                    <input type="text" name="firstname" id="firstname" placeholder="Enter First Name">
+                    <input type="text" name="firstname" id="firstname" class="fullname" placeholder="Enter First Name">
                 </div>
                 <div class="form_control">
                     <label for="lastname">Last Name</label>
-                    <input type="text" name="lastname" id="lastname" placeholder="Enter Last Name">
+                    <input type="text" name="lastname" id="lastname" class="fullname" placeholder="Enter Last Name">
                 </div>
                 <div class="form_control">
                     <label for="username">Username</label>
@@ -51,8 +56,12 @@
                 </div>
             </div>
             <div class="button_container user_button">
-                <button type="submit" name="submit">Register Now</button>
+                <button type="submit" name="submit" id="Register">Register Now</button>
             </div>
         </form>
     </div>
 </div>
+<!-- <script src="script.js"></script> -->
+<script src="js/script.js"></script>
+</body>
+</html>

@@ -25,23 +25,23 @@ class Signup_controller extends Signup{
    }
    public function signupUser(){
     if($this->emptyInput()==false){
-      header('location:../index.php?error=emptyInput');
+      header('location:../signup.php?error=emptyInput');
       exit();
     }
     if($this->invalidUsername()==false){
-      header('location:../index.php?error=invalidusername');
+      header('location:../signup.php?error=invalidusername');
       exit();
     }
     if($this->invalidEmail()==false){
-      header('location:../index.php?error=invalidEmail');
+      header('location:../signup.php?error=invalidEmail');
       exit();
     }
     if($this->pwdMatch()==false){
-      header('location:../index.php?error=passworddoesnotmatch');
+      header('location:../signup.php?error=passworddoesnotmatch');
       exit();
     }
     if($this->userCheck()==false){
-      header('location:../index.php?error=Useralreadyexist');
+      header('location:../signup.php?error=Useralreadyexist');
       exit();
     }
     $this->setUser($this->firstname,$this->lastname,$this->userName,$this->email,$this->address,$this->phone,$this->password,$this->dateofBirth);

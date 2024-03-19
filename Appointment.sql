@@ -28,7 +28,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `appointment` (
-  `a_id` int NOT NULL,
+  `a_id` int NOT NULL PRIMARY KEY,
   `d_id` int NOT NULL,
   `u_id` int NOT NULL,
   `a_date` date NOT NULL,
@@ -42,7 +42,7 @@ CREATE TABLE `appointment` (
 --
 
 CREATE TABLE `doctors` (
-  `d_id` int NOT NULL,
+  `d_id` int NOT NULL PRIMARY KEY,
   `d_firstname` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
   `d_lastname` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
   `d_username` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
@@ -80,7 +80,7 @@ INSERT INTO `doctors` (`d_id`, `d_firstname`, `d_lastname`, `d_username`, `d_ema
 --
 
 CREATE TABLE `review` (
-  `r_id` int NOT NULL,
+  `r_id` int NOT NULL PRIMARY KEY,
   `d_id` int NOT NULL,
   `u_id` int NOT NULL,
   `r_comment` varchar(200) NOT NULL,

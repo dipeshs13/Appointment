@@ -76,7 +76,7 @@
                     <label for="location">Clinics/Hospital Location</label>
                     <input type="text" name="location" id="location" placeholder="Enter clinics/hospital location..">
                 </div>
-
+             
                 <div class="form_control">
                     <label for="date">DateOfBirth:</label>
                     <input type="date" name="dateofBirth" id="datepicker" placeholder="Enter your dob..">
@@ -103,7 +103,7 @@
                 </div>
 
                 <div class="form_control">
-                    <span class="link">Already have an account?<a href="login.php">Login In</a></span>
+                    <span class="link">Already have an account?<a href="doctorlogin.php">Login In</a></span>
                 </div>
             </div>
             <div class="button_container">
