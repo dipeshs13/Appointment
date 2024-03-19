@@ -9,7 +9,7 @@ let size_decrease = function(){
 }
 textarea.addEventListener('focus', size_increase);
 
-textarea.addEventListener('blur', size_decrease);
+// textarea.addEventListener('blur', size_decrease);
 
 
 // let reviewForm = document.getElementById('reviewForm');

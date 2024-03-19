@@ -13,11 +13,11 @@ class Review_controller extends Review_classes{
    
     public function review(){
         if($this->emptyinput()==false){
-            header('location:../Book.php?error=emptyinput');
+            header('location:../Book.php?doctor_id='.$this->doctorid.'?error=emptyinput');
             exit();
         }
 
-    $this->get_review($this->doctorid,$this->userid,$this->review);
+    $this->post_review($this->doctorid,$this->userid,$this->review);
     }
 
     private function emptyinput(){

@@ -23,7 +23,7 @@ if(isset($_POST['submit'])){
 
     $review_post->review();
     if($review_post){
-        header('location:../Book.php?postsuccessfully');
+        header('location:../Book.php?doctor_id='.$doctor_id.'success');
         exit();
     } 
 

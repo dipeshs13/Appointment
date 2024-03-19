@@ -29,7 +29,6 @@
         <div class="book_content">
             <div class="doctor_img"> ';
                 foreach ($doctor_info as $key => $doctor) {
-                    // $encoded_doctor_id = urlencode($doctor['d_id']);
                     $doctorid = $doctor['d_id'];
                     echo '
             <img src="doctorimages/' . $doctor['d_image'] . '" alt="">
@@ -50,21 +49,46 @@
         }
         ?>
         
+
         <div class="review">
-    <form action="includes/review.inc.php" method="POST" class="review_form" id="reviewForm">
-        <input type="hidden" name="doctor_id" value="<?php echo isset($_GET['doctor_id']) ? $_GET['doctor_id'] : ''; ?>">
+    <form action="includes/review.inc.php" class="review_form" id="reviewForm"  method="POST">
+        <input type="hidden" name="doctor_id" value="<?php echo $doctorid;?>">
         <label for="review">Post a review</label>
         <textarea name="review_text" id="search" cols="80" rows="3"></textarea>
-        <button type="submit" class="btn">POST</button>
+        <button type="submit" name="submit" class="btn">POST</button>
     </form>
 </div>
+
+    <?php
+    include 'classes/review_classes.php';
+    
+    ?>
 
         <div id="review_section">
             <h2>Reviews</h2>
             <div class="review_list">
-           <p class="name">Dipesh Kumar SHrestha <span id="Date">On Mar 18 9:35AM</span></p>
-            <p id="review">Hello my name is Dipesh Kumar Shrestha </p>
+        <?php
+        // echo var_dump($doctorid);
+         $review = new Review_classes();
+         $review_data = $review->get_review($doctorid);
+         if($review_data){
+         foreach ($review_data as $key => $reviews ) {
+            $user_id = $reviews['u_id'];
+            $user_info = $review->get_fullname($user_id);
+             foreach ($user_info as $key => $user_fullname) {
+                $user_firstname = $user_fullname['u_firstname'];
+                $user_lastname = $user_fullname['u_lastname'];
+             }
+            echo '
+            
+             <p class="name">'.$user_firstname.' '.$user_lastname.' <span id="Date">'.$reviews['r_datetime'].'</span></p>
+             <p id="review">'.$reviews['r_comment'].' </p>
              
+             ';
+         }
+        }
+        
+        ?>
             </div>
         </div>
 
