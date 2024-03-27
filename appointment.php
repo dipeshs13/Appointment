@@ -100,13 +100,13 @@
         </Table>
     </div>
     <!-- <script src="js/script.js"></script> -->
-    <script>
+    <!-- <script>
     let time = document.getElementById('time').value;
     let timefrom = document.getElementById('timefrom');
     let timeto = document.getElementById('timeto');
     
     
-</script>
+</script> -->
 
 </body>
 

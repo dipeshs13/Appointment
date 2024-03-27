@@ -22,6 +22,8 @@ class doctor_schedule_controller extends doctor_schedule_classes{
             exit();
         }
     $this->schedule($this->doctorid,$this->day_from,$this->day_to,$this->time_from,$this->time_to);
+    $this->update_schedule($this->doctorid,$this->day_from,$this->day_to,$this->time_from,$this->time_to);
+    
     }
 
     private function emptyInput(){

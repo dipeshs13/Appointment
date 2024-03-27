@@ -1,6 +1,8 @@
 <?php
-      session_start();
-       require_once 'includes/dbh.inc.php';
+session_start();
+require_once 'includes/dbh.inc.php';
+include 'classes/appointment_classes.php';
+$appointmentinfo = new Appointment();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -30,8 +32,8 @@
         </a>
       </li>
       <li>
-        <a href="#" id="complete">
-          <span>Completed</span>
+        <a href="#" id="pending">
+          <span>Pending</span>
         </a>
       </li>
       <li>
@@ -40,17 +42,19 @@
         </a>
       </li>
       <li>
-        <a href="#" id="pending">
-          <span>Pending</span>
+        <a href="#" id="complete">
+          <span>Completed</span>
         </a>
       </li>
+
+
       <!-- <li>
         <a href="#">
           <span>Settings</span>
         </a>
       </li> -->
 
-<?php
+      <?php
       if (isset($_SESSION['doctor_id'])) {
         echo '
         <li class="logout">
@@ -61,11 +65,15 @@
         </ul>
         ';
       }
-    ?>  
-    </div>
+      ?>
+  </div>
+
 
   <div class="main_content " id="maincontent">
     <div class="header">
+      <?php
+
+      ?>
       <div class="header_title">
         <span>Doctor</span>
         <h2>Dashboard</h2>
@@ -73,188 +81,282 @@
       <div class="user_info">
         <div class="search_box">
           <i class="fa-solid fa-search"></i>
-          <input type="text" placeholder="Search"/>
+          <input type="text" placeholder="Search" />
         </div>
         <!-- <img src=' . $_SESSION['doctorimg'] . ' alt=""> -->
       </div>
     </div>
-      
-      <div class="card_container" id="cardcontainer">
-        <h3 class="main_title">Today's date</h3>
-        <div class="card">
-          <div class="appointment_card">
-            <div class="card_header">
-              <div class="appointment">
-                <span class="title">
-                  Completed Appointment
-                </span>
-                <span class="appointment_value">
-                  10 appointment
-                </span>
-              </div>
-            </div>
-          </div>
 
-          <div class="appointment_card">
-            <div class="card_header">
-              <div class="appointment">
-                <span class="title">
-                  Confirm Appointment
-                </span>
-                <span class="appointment_value">
-                  10 appointment
-                </span>
-              </div>
-            </div>
-          </div>
+    <div class="card_container" id="cardcontainer">
+      <h3 class="main_title">Today's date</h3>
+      <div class="card">
 
-          <div class="appointment_card">
-            <div class="card_header">
-              <div class="appointment">
-                <span class="title">
-                  Pending Appointment
-                </span>
-                <span class="appointment_value">
-                  5 pending
-                </span>
-              </div>
+
+        <div class="appointment_card">
+          <div class="card_header">
+            <div class="appointment">
+              <span class="title">
+                <?php
+                $totalPending = $appointmentinfo->get_pending_appointment();
+                // foreach ($$toalPendingAppointment as $key => $total) {
+                  # code...
+                  echo 'Pending Appointment
+                  </span>
+                  <span class="appointment_value">
+                  '.$totalPending.' pending
+                  </span>
+                  
+                  ';
+                // }
+                ?>
+              
             </div>
           </div>
         </div>
-      </div>
 
-   
-      <div class="tabular">
-        <h3 class="main_title">Appointment data</h3>
-        <div class="table_container">
-          <table>
-            <thead>
-              <tr>
-                <th>Date</th>
-                <th>Name</th>
-                <th>Phone</th>
-                <th>Appointment Date</th>
-                <th>Appointment Time</th>
-                <th>Status</th>
-                <th>Action</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>
-                  2024-02-20
-                </td>
-                <td>Dipesh Kumar Shrestha</td>
-                <td>9852829419</td>
-                <td>2024-02-26</td>
-                <td>5:00pm - 6:00pm</td>
-                <td>Pending</td>
-                <td><button>Edit</button></td>
-              </tr>
-            </tbody>
-          </table>
+        <div class="appointment_card">
+          <div class="card_header">
+            <div class="appointment">
+              <span class="title">
+             <?php
+             $confirmAppointment = $appointmentinfo->get_confirm_appointment();
+              echo 'Confirm Appointment
+              </span>
+              <span class="appointment_value">
+                '.$confirmAppointment.' appointment
+              </span>';
+              ?>
+            </div>
+          </div>
         </div>
+
+        <div class="appointment_card">
+          <div class="card_header">
+            <div class="appointment">
+              <span class="title">
+                <?php
+                $completedApp = $appointmentinfo->get_complete_appointment();
+                echo '
+                Completed Appointment
+              </span>
+              <span class="appointment_value">
+                '.$completedApp.' appointment
+              </span>';
+              ?>
+            </div>
+          </div>
+        </div>
+
+
+  
       </div>
     </div>
-    <div class="blank">
-      <div>
+
+
+    <div class="tabular">
+      <h3 class="main_title">Appointment data</h3>
+      <div class="table_container">
+        <table>
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Name</th>
+              <th>Phone</th>
+              <th>Appointment Date</th>
+              <th>Appointment Time</th>
+              <th>Status</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                2024-02-20
+              </td>
+              <td>Dipesh Kumar Shrestha</td>
+              <td>9852829419</td>
+              <td>2024-02-26</td>
+              <td>5:00pm - 6:00pm</td>
+              <td>Pending</td>
+              <td><button>Edit</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="blank">
+    <div>
 
       <?php
       //  require_once 'includes/dbh.inc.php';
-       include 'classes/doctor_data.php';
+      include 'classes/doctor_data.php';
 
-       $doctorid = $_SESSION['doctor_id'];
-       $doctor_info = $d_data->get_Doctor_info($doctorid);
-       if($doctor_info){
+      $doctorid = $_SESSION['doctor_id'];
+      $doctor_info = $d_data->get_Doctor_info($doctorid);
+      if ($doctor_info) {
         foreach ($doctor_info as $key => $doctor) {
-          
+
           echo '
-          <p>Name:'.' '.$doctor['d_fullname'].'</p>
-          <p>Username:'.' '.$doctor['d_username'].'</p>
-          <p>Email:'.' '.$doctor['d_email'].'</p>
-          <p>Phone:'.' '.$doctor['d_phone'].'</p>
-          <p>Category:'.' '.$doctor['d_category'].'</p>
-          <p>Experienced:'.' '.$doctor['d_experienced'].'</p>
-          <p>Qualification:'.' '.$doctor['d_qualification'].'</p>
+          <p>Name:' . ' ' . $doctor['d_fullname'] . '</p>
+          <p>Username:' . ' ' . $doctor['d_username'] . '</p>
+          <p>Email:' . ' ' . $doctor['d_email'] . '</p>
+          <p>Phone:' . ' ' . $doctor['d_phone'] . '</p>
+          <p>Category:' . ' ' . $doctor['d_category'] . '</p>
+          <p>Experienced:' . ' ' . $doctor['d_experienced'] . '</p>
+          <p>Qualification:' . ' ' . $doctor['d_qualification'] . '</p>
           ';
         }
       }
-      
-      ?>
-      
-      </div>
-      <form action="includes/doctor_schedule.inc.php" id="form_container" method="POST">
-        <!-- <input type="time" name="" id=""> -->
 
-          <input type="hidden" name="doctor_id" value="<?php echo $doctorid; ?>">
+      ?>
+
+    </div>
+    <form action="includes/doctor_schedule.inc.php" id="form_container" method="POST">
+      <!-- <input type="time" name="" id=""> -->
+
+      <input type="hidden" name="doctor_id" value="<?php echo $doctorid; ?>">
       <div class="content">
         <label for="Day">Day From </label>
         <select name="day_from" id="day">
-              <option value="" selected disabled hidden>Select Day </option>
-              <option value="Sunday"> Sunday</option>
-              <option value="Monday"> Monday</option>
-              <option value="Tuesday"> Tuesday</option>
-              <option value="Wednesday"> Wednesday</option>
-              <option value="Thursday"> Thursday</option>
-              <option value="Friday"> Friday</option>
-         </select>
-    </div>
+          <option value="" selected disabled hidden>Select Day </option>
+          <option value="Sunday"> Sunday</option>
+          <option value="Monday"> Monday</option>
+          <option value="Tuesday"> Tuesday</option>
+          <option value="Wednesday"> Wednesday</option>
+          <option value="Thursday"> Thursday</option>
+          <option value="Friday"> Friday</option>
+        </select>
+      </div>
       <div class="content">
         <label for="Day">Day To</label>
         <select name="day_to" id="day">
-              <option value="" selected disabled hidden>Select Day</option>
-              <option value="Sunday"> Sunday</option>
-              <option value="Monday"> Monday</option>
-              <option value="Tuesday"> Tuesday</option>
-              <option value="Wednesday"> Wednesday</option>
-              <option value="Thursday"> Thursday</option>
-              <option value="Friday"> Friday</option>
-         </select>
-    </div>
-    <div class="content">
-      <label for="time_from">Time form</label>
-      <input type="time" name="time_from" id="time_from">
-    </div>
-    <div class="content">
-      <label for="time_to">Time to</label>
-      <input type="time" name="time_to" id="time_from">
-    </div>
-   
-   
-    <button type="submit" name="submit">Submit</button>
-     </form>
+          <option value="" selected disabled hidden>Select Day</option>
+          <option value="Sunday"> Sunday</option>
+          <option value="Monday"> Monday</option>
+          <option value="Tuesday"> Tuesday</option>
+          <option value="Wednesday"> Wednesday</option>
+          <option value="Thursday"> Thursday</option>
+          <option value="Friday"> Friday</option>
+        </select>
       </div>
-    <div class="comp_appointment">
-      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Corporis molestias, id cupiditate ex praesentium laborum odit eveniet libero accusamus voluptatem.</p>
-    </div>
-    <div class="con_appointment">
-      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Facere, nulla?</p>
-    </div>
-    <div class="pen_appointment">
-      <!-- <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque aliquam quisquam odio a necessitatibus. Quisquam architecto dicta ea aliquam cum.</p> -->
-     <?php
-     include 'classes/appointment_classes.php';
-     $appointmentinfo = new Appointment();
+      <div class="content">
+        <label for="time_from">Time form</label>
+        <input type="time" name="time_from" id="time_from">
+      </div>
+      <div class="content">
+        <label for="time_to">Time to</label>
+        <input type="time" name="time_to" id="time_from">
+      </div>
 
-     $pending_appointment = $appointmentinfo->get_user_appointment();
 
-     if($pending_appointment){
+      <button type="submit" name="submit">Submit</button>
+    </form>
+  </div>
 
-      foreach ($pending_appointment as $key => $pending) {
-        echo '<p>User ID: ' . $pending['u_id'] . '</p>';
-        echo '<p>Appointment Date: ' . $pending['a_date'] . '</p>';
-        echo '<p>Appointment Time: ' . $pending['a_time'] . '</p>';
-        echo '<p>Appointment status: ' . $pending['status'] . '</p>';
-        # code...
+  <div class="pen_appointment">
+    <div class="pending">
+      <?php
+
+
+      $pending_appointments = $appointmentinfo->get_user_appointment();
+
+      if ($pending_appointments) {
+        foreach ($pending_appointments as $pending) {
+          echo '<p>User ID: ' . $pending['u_id'] . '</p>';
+          echo '<p>Appointment Date: ' . $pending['a_date'] . '</p>';
+          echo '<p>Appointment Time: ' . $pending['a_time'] . '</p>';
+          echo '<p>Appointment status: ' . $pending['status'] . '</p>';
+          echo '<a href="doctor.php?a_id=' . $pending['a_id'] . '&status=confirm">Confirm</a>';
+        }
       }
-     }
-     ?>
-      
+
+
+      ?>
+
     </div>
+  </div>
+
+  <?php
+ 
+ if(isset($_GET['a_id'])){
+  $appointmentid = $_GET['a_id'];
+  $appointmentinfo->confirm_appointment($appointmentid);
+}
+
+    ?>
+  <div class="con_appointment">
+    <div class="confirm">
+      <h3>Confirmed Appointments</h3>
+      <div class="appointment-list">
+        <?php
+        
+        include 'classes/user_data.php';
+        $userData = new User_data();
+
+        $confirm_appointments = $appointmentinfo->get_confirmed_appointment();
+        if ($confirm_appointments) {
+          foreach ($confirm_appointments as $key => $confirm) {
+            $userid = $confirm['u_id'];
+            $userinfo = $userData->getUserInfo($userid);
+            foreach ($userinfo as $key => $user) {
+              echo '<p><strong>Name: </strong>' . $user['u_firstname'] . ' ' . $user['u_lastname'] . '</p>';
+              echo '<p><strong>Phone: </strong>' . $user['u_phone'] . '</p>';
+            }
+            echo '<div class="appointment_info">';
+            echo '<p><strong>Appointment Date:</strong> ' . $confirm['a_date'] . '</p>';
+            echo '<p><strong>Appointment Time:</strong> ' . $confirm['a_time'] . '</p>';
+            echo '<p><strong>Appointment Status:</strong> <span class="green-text">' . $confirm['status'] . '</span></p>';
+            echo '<a href="doctor.php?a_id=' . $confirm['a_id'] . '&status=completed">Completed</a>';
+
+            
+        
+            echo '</div>';
+          }
+        } else {
+          echo '<p>No confirmed appointments available.</p>';
+        }
+        ?>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="comp_appointment">
+  <div class="confirm">
+      <h3>Completed Appointments</h3>
+      <div class="appointment-list">
+    <?php
+    $appointmentinfo->complete_appointment($appointmentid);
+    $complete_appointments = $appointmentinfo->get_completed_appointment();
+        if ($complete_appointments) {
+          foreach ($complete_appointments as $key => $complete) {
+            
+            
+              echo '<p><strong>Name: </strong>' . $user['u_firstname'] . ' ' . $user['u_lastname'] . '</p>';
+              echo '<p><strong>Phone: </strong>' . $user['u_phone'] . '</p>';
+            
+            echo '<div class="appointment_info">';
+            echo '<p><strong>Appointment Date:</strong> ' . $complete['a_date'] . '</p>';
+            echo '<p><strong>Appointment Time:</strong> ' . $complete['a_time'] . '</p>';
+            echo '<p><strong>Appointment Status:</strong> <span class="green-text">' . $complete['status'] . '</span></p>';
+    
+        
+            echo '</div>';
+          }
+        } else {
+          echo '<p>No confirmed appointments available.</p>';
+        }
+        ?>
+    
+      </div>
+      </div>
+  </div>
+
   <!-- </div> -->
-    <!-- </div> -->
+  <!-- </div> -->
   <script>
-   let dashboard = document.getElementById('dashboard');
+    let dashboard = document.getElementById('dashboard');
     let maincontent = document.getElementsByClassName('main_content')[0];
     let profile = document.getElementById('profile');
     let blank = document.getElementsByClassName('blank')[0];
@@ -262,14 +364,14 @@
     let compAppointment = document.getElementsByClassName('comp_appointment')[0];
     let confirm = document.getElementById('confirm');
     let conAppointment = document.getElementsByClassName('con_appointment')[0];
-     let pending = document.getElementById('pending');
-     let penAppointment = document.getElementsByClassName('pen_appointment')[0];
+    let pending = document.getElementById('pending');
+    let penAppointment = document.getElementsByClassName('pen_appointment')[0];
     // let sidebar = document.getElementsByClassName('sidebar')[0];
 
-   
-    let main = function(){
+
+    let main = function () {
       blank.style.display = 'none';
-      compAppointment.style.display = 'none'; 
+      compAppointment.style.display = 'none';
       conAppointment.style.display = 'none';
       penAppointment.style.display = 'none';
       maincontent.classList.remove('hidden');
@@ -277,47 +379,47 @@
     }
     dashboard.addEventListener('click', main);
 
-    let info = function(){
+    let info = function () {
       maincontent.classList.add('hidden');
       compAppointment.style.display = 'none';
       conAppointment.style.display = 'none';
       penAppointment.style.display = 'none';
       blank.style.display = 'block';
-    
+
     }
     profile.addEventListener('click', info);
 
-   let com_appointment = function(){
-    maincontent.classList.add('hidden');
-    blank.style.display = 'none';
-    conAppointment.style.display = 'none';
-    penAppointment.style.display = 'none';
-    compAppointment.style.display = 'block';
+    let com_appointment = function () {
+      maincontent.classList.add('hidden');
+      blank.style.display = 'none';
+      conAppointment.style.display = 'none';
+      penAppointment.style.display = 'none';
+      compAppointment.style.display = 'block';
 
 
-   }
-   complete.addEventListener('click',com_appointment);
-    
-   let con_appointment = function(){
-    maincontent.classList.add('hidden');
-    blank.style.display = 'none';
-    compAppointment.style.display = 'none';
-    penAppointment.style.display = 'none';
-    conAppointment.style.display = 'block';
+    }
+    complete.addEventListener('click', com_appointment);
 
-   }
-   confirm.addEventListener('click', con_appointment);
-  
-   let pen_appointment = function(){
-    maincontent.classList.add('hidden');
-    blank.style.display = 'none';
-    compAppointment.style.display = 'none';
-    conAppointment.style.display = 'none';
-    penAppointment.style.display = 'block';
-   }
-   pending.addEventListener('click', pen_appointment);
+    let con_appointment = function () {
+      maincontent.classList.add('hidden');
+      blank.style.display = 'none';
+      compAppointment.style.display = 'none';
+      penAppointment.style.display = 'none';
+      conAppointment.style.display = 'block';
 
-  
+    }
+    confirm.addEventListener('click', con_appointment);
+
+    let pen_appointment = function () {
+      maincontent.classList.add('hidden');
+      blank.style.display = 'none';
+      compAppointment.style.display = 'none';
+      conAppointment.style.display = 'none';
+      penAppointment.style.display = 'block';
+    }
+    pending.addEventListener('click', pen_appointment);
+
+
   </script>
 </body>
 
