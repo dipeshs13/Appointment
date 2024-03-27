@@ -15,7 +15,7 @@
        ' <div class="card" id="card-'.($key+1).'">
       <img src="images/doctor.png" alt="">
       <p class="speclaist">'.$doctors['d_category'].'</p>
-      <p class="name">'.$doctors['d_firstname'].' '.$doctors['d_lastname'].'</p>
+      <p class="name">'.$doctors['d_fullname'].'</p>
       <p>Available</p>
       <a href="Book.php?doctor_id='.$doctor_id.'">Book Now</a>
     </div>';

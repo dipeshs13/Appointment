@@ -16,6 +16,7 @@ class doctorLogin extends dbh_connection{
             $result = $stmt->fetch(PDO::FETCH_ASSOC);
             $checkpassword = password_verify($password,$result['d_password']);
             if($checkpassword){
+                $_SESSION['doctor_id'] = $result['d_id'];
                 $_SESSION['doctorlogin'] = $result['d_username'];
                 $_SESSION['doctorimg'] = $result['d_imagesource'];
                 header('location: ../doctor.php?success');

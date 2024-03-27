@@ -8,8 +8,11 @@
 }
 
 .contain{
-    max-width: 900px;
-    margin: 0 auto;
+    /* max-width: 900px; */
+    width: 100vw;
+    margin: 10px auto;
+    padding: 0px 50px;
+    /* border: 2px solid black; */
     
     
 }
@@ -17,26 +20,36 @@ body{
     background-color:#fafafa ;
 }
 .signup{
-    max-width: 600px;
-    padding: 20px 40px;
+    /* max-width: 600px; */
+    /* width: 100vw; */
+    padding: 20px 80px;
     background-color: white;
     margin: 0 auto;
     margin-top: 10px;
     box-shadow: 4px 3px 5px rgba(1,1,1,0.1);
     border-radius: 10px;
     /* border: 2px solid black; */
-    height: 100vh;
+    height: 70vh;
 }
 .signup_user{
     /* background-color: green; */
     height: 65vh;
+    /* border: 2px solid black; */
+    width: 50vw;
 }
 .form_container{
     margin-top: 30px;
     display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
+    grid-template-columns: repeat(5,minmax(200px,1fr));
     gap: 20px;
     
+}
+
+.form_contain{
+    margin-top: 30px;
+    display: grid;
+    grid-template-columns: repeat(2,minmax(200px,300px));
+    gap: 20px;
 }
 
 .form_control{
@@ -128,4 +141,13 @@ button:hover{
 .gender{
     position: relative;
     bottom: 30px;
+}
+.form_control.success input{
+    border: 2px solid #2ecc71;
+}
+.form_control.error input{
+    border: 2px solid #e74c3c;
+}
+.form_control.error small{
+    color:red
 }

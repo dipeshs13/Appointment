@@ -15,13 +15,13 @@
         <form action="includes/doctor_signup.inc.php" method="POST" enctype="multipart/form-data">
             <div class="form_container">
                 <div class="form_control">
-                    <label for="firstname">First Name</label>
-                    <input type="text" name="firstname" id="firstname" placeholder="Enter First Name..">
+                    <label for="fullname">Full Name</label>
+                    <input type="text" name="fullname" id="fullname" placeholder="Enter Full Name..">
                 </div>
-                <div class="form_control">
+                <!-- <div class="form_control">
                     <label for="lastname">Last Name</label>
                     <input type="text" name="lastname" id="lastname" placeholder="Enter Last Name..">
-                </div>
+                </div> -->
                 <div class="form_control">
                     <label for="username">Username</label>
                     <input type="text" name="username" id="Username" placeholder="Enter Username..">
@@ -30,10 +30,7 @@
                     <label for="email">Email</label>
                     <input type="email" name="email" id="email" placeholder="Enter your Email..">
                 </div>
-                <div class="form_control">
-                    <label for="address">Address</label>
-                    <input type="text" name="address" id="address" placeholder="Enter your Address..">
-                </div>
+              
                 <div class="form_control">
                     <label for="phone">Phone</label>
                     <input type="tel" name="phone" id="phone" placeholder="Enter your phone number..">
@@ -76,31 +73,29 @@
                     <label for="location">Clinics/Hospital Location</label>
                     <input type="text" name="location" id="location" placeholder="Enter clinics/hospital location..">
                 </div>
+                
              
+              
                 <div class="form_control">
-                    <label for="date">DateOfBirth:</label>
-                    <input type="date" name="dateofBirth" id="datepicker" placeholder="Enter your dob..">
+                    <label for="experienced">Experienced Year</label>
+                    <input type="text" name="experienced" id="experienced" placeholder="Enter your Experienced year..">
                 </div>
                 <div class="form_control">
                     <label for="file">Certificate</label>
                     <input type="file" name="uploadfile" id="file">
                 </div>
                 <div class="form_control">
-                    <label for="experienced">Experienced Year</label>
-                    <input type="text" name="experienced" id="experienced" placeholder="Enter your Experienced year..">
-                </div>
-                <div class="form_control">
                     <label for="profile">Upload Your Image</label>
                     <input type="file" name="profile" id="profile">
                 </div>
-                <div class="control gender">
+                <!-- <div class="control gender">
                     <label for="gender">Gender:</label>
                     <input type="radio" id="male" name="gender" value="male">
                     <label for="male">Male</label>
                     
                     <input type="radio" id="female" name="gender" value="female">
                     <label for="female">Female</label>
-                </div>
+                </div> -->
 
                 <div class="form_control">
                     <span class="link">Already have an account?<a href="doctorlogin.php">Login In</a></span>
@@ -113,4 +108,4 @@
     </div>
 </div>
 </body>
-</html>
+</html> 

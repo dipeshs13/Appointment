@@ -4,9 +4,9 @@ const textarea = document.getElementById('search');
 let size_increase = function(){
     this.rows = 6;
 }
-let size_decrease = function(){
-    this.rows = 3;
-}
+// let size_decrease = function(){
+//     this.rows = 3;
+// }
 textarea.addEventListener('focus', size_increase);
 
 // textarea.addEventListener('blur', size_decrease);

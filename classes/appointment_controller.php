@@ -17,7 +17,7 @@ class Appointment_controller extends Appointment{
             exit();
         }
         if($this->bookAppointment()==false){
-            header("location:../appointment.php?invaliddate");
+            header("location: ../appointment.php?doctor_id=" . $this->doctorid . "&invaliddate");
             exit();
         }
      $this->set_appointment($this->doctorid,$this->userid,$this->date,$this->time);

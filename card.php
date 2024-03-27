@@ -10,9 +10,9 @@ foreach ($doctors as $key => $doctor){
   $doctor_id = $doctor['d_id'];
      echo '
     <div class="card" id="card-'.($key+1).'">
-    <img src="doctorimage/'.$doctor['d_image'].'" alt="">
+    <img src="'.$doctor['d_image'].'" alt="">
     <p class="specilaist">'.$doctor['d_category'].'</p>
-    <p class="name">Dr.'.($doctor['d_firstname']  . ' '.$doctor['d_lastname']).'</p>
+    <p class="name">Dr.'.$doctor['d_fullname'].'</p>
     <a href="Book.php?doctor_id='. $doctor_id.'">Book Now</a>
     </div>
     ';

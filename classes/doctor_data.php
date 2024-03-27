@@ -3,7 +3,7 @@
 
 class doctorData extends dbh_connection{
     public function get_Doctor_Data(){
-        $query = 'SELECT * FROM doctors';
+        $query = 'SELECT * FROM doctors LIMIT 8';
         $stmt = $this->connect()->prepare($query);
         if(!$stmt->execute([])){
             header('location:../index.php?stmtfailed');

@@ -1,11 +1,12 @@
 <?php
 
 class doctorController extends doctorSignup{
-    private $firstname;
-    private $lastname;
+    // private $firstname;
+    // private $lastname;
+    private $fullname;
     private $username;
     private $email;
-    private $address;
+    // private $address;
     private $phone;
     private $password;
     private $cPassword;
@@ -13,31 +14,34 @@ class doctorController extends doctorSignup{
 
     private $hName;
     private $hlocation;
-    private $dateofbirth;
+    // private $dateofbirth;
     private $folder;
-    private $gender;
+    
     private $doctorimage;
     private $experienced;
     private $qualification;
 
-    public function __construct($firstname,$lastname,$username,$email,$address,$phone,$password,$cPassword,$category,$hName,$hlocation, $dateofbirth, $folder, $gender, $doctorimage, $experienced,$qualification){
-        $this->firstname = $firstname;
-        $this->lastname = $lastname;
+    
+    public function __construct($fullname,$username,$email,$phone,$password,$cPassword,$category,$hName,$hlocation, $folder,  $doctorimage, $experienced,$qualification){
+        // $this->firstname = $firstname;
+        // $this->lastname = $lastname;
+        $this->fullname = $fullname;
         $this->username = $username;
         $this->email = $email;
-        $this->address = $address;
+        // $this->address = $address;
         $this->phone = $phone;
         $this->password = $password;
         $this->cPassword = $cPassword;
         $this->category = $category;
         $this->hName = $hName;
         $this->hlocation = $hlocation;
-        $this->dateofbirth = $dateofbirth;
+        // $this->dateofbirth = $dateofbirth;
         $this->folder = $folder;
-        $this->gender = $gender;
+        // $this->gender = $gender;
         $this->doctorimage = $doctorimage;
         $this->experienced = $experienced;
         $this->qualification = $qualification;
+        
         
     }
 
@@ -64,13 +68,13 @@ class doctorController extends doctorSignup{
             exit();
         }
 
-    $this->setDoctor($this->firstname,$this->lastname,$this->username,$this->email,$this->address,$this->phone,$this->password,$this->category,$this->hName,$this->hlocation,$this->dateofbirth,$this->folder,$this->gender,$this->doctorimage,$this->experienced,$this->qualification);
+    $this->setDoctor($this->fullname,$this->username,$this->email,$this->phone,$this->password,$this->category,$this->hName,$this->hlocation,$this->folder,$this->doctorimage,$this->experienced,$this->qualification);
 
     }
     private function empty(){
         $result = true;
-        if(empty($this->firstname) || empty($this->lastname) || empty($this->username) || empty($this->email) || empty($this->address) || empty($this->phone) || empty($this->password) || empty($this->cPassword) || 
-       empty($this->category) || empty($this->hName) || empty($this->hlocation) || empty($this->dateofbirth) || empty($this->folder) ||   empty($this->gender) || empty($this->doctorimage) || empty($this->experienced)
+        if(empty($this->fullname) || empty($this->username) || empty($this->email) || empty($this->phone) || empty($this->password) || empty($this->cPassword) || 
+       empty($this->category) || empty($this->hName) || empty($this->hlocation) || empty($this->folder) || empty($this->doctorimage) || empty($this->experienced)
        || empty($this->qualification)){
 
             $result = false;
@@ -97,12 +101,25 @@ class doctorController extends doctorSignup{
 
     private function pMatch(){
         $result = true;
-        if(($this->password) != ($this->cPassword)){
+        if($this->password!= $this->cPassword){
             $result = false;
         }
         return $result;
     }
 
+    // private function schedule(){
+    //     $result = true;
+    //     if(!strtotime($this->time_from) || !strtotime($this->time_to)){
+    //         return false;
+    //     }
+    //     $fromtime = strtotime($this->time_from);
+    //     $totime = strtotime($this->time_to);
+
+    //     if($fromtime < strtotime('08:00:00') || $totime > strtotime('06:00:00')){
+    //         return false;
+    //     }
+    //     return $result;
+    // }
     private function doctorCheck(){
         $result = true;
         if(!$this->checkDoctor($this->username,$this->email)){

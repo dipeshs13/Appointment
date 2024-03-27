@@ -16,12 +16,13 @@
 
     <div class="book_container">
         <?php
-
+    
+          $doctorid = null;
         if (isset ($_GET['doctor_id'])) {
             $doctorid = $_GET['doctor_id'];
-            //   $decoded_doctorid = base64_decode($doctorid);
+            
             $doctor_info = $d_data->get_Doctor_info($doctorid);
-            //   echo var_dump($doctor_info);
+            
         
             if ($doctor_info) {
                 echo '
@@ -31,15 +32,14 @@
                 foreach ($doctor_info as $key => $doctor) {
                     $doctorid = $doctor['d_id'];
                     echo '
-            <img src="doctorimages/' . $doctor['d_image'] . '" alt="">
+            <img src=" '. $doctor['d_image'] . '" alt="">
             </div>
             <div class="info">
-                <p>Name:' . ' ' . $doctor['d_firstname'] . ' ' . $doctor['d_lastname'] . '</p>
+                <p>Name:' . ' ' . $doctor['d_fullname'] . ' </p>
                 <p>Contactno:' . ' ' . $doctor['d_phone'] . '</p>
                 <p>Clinics/Hospital name:' . ' ' . $doctor['d_cilinics'] . '</p>
                 <p>Clinics/Hospital Address:' . ' ' . $doctor['d_clocation'] . '</p>
                 <p>Specialties:' . ' ' . $doctor['d_category'] . '</p>
-                <p>Gender:' . ' ' . $doctor['d_gender'] . '</p>
                 <a href="appointment.php?doctor_id=' . $doctorid . '">Set appointment</a>
                 </div>
                 </div>  
@@ -58,20 +58,22 @@
         echo '
         <div class="review">
             <form action="includes/review.inc.php" class="review_form" id="reviewForm"  method="POST">
-                <input type="hidden" name="doctor_id" value="<?php echo $doctorid;?>">
+                <input type="hidden" name="doctor_id" value="'.$doctorid.'">
                 <label for="review">Post a review</label>
                 <textarea name="review_text" id="search" cols="80" rows="3"></textarea>
                 <button type="submit" name="submit" class="btn">POST</button>
             </form>
         </div>';
     }
-        
+    
+    if($doctorid){
     echo '
         <div id="review_section" class="review_box">
             <h2>Reviews</h2>
             <div class="review_list">';
         
-        // echo var_dump($doctorid);
+    
+        
          $review = new Review_classes();
          $review_data = $review->get_review($doctorid);
          if($review_data){
@@ -82,6 +84,7 @@
                 $user_firstname = $user_fullname['u_firstname'];
                 $user_lastname = $user_fullname['u_lastname'];
              }
+            }
             echo '
             
              <p class="name">'.$user_firstname.' '.$user_lastname.' <span id="Date">'.$reviews['r_datetime'].'</span></p>
@@ -89,8 +92,8 @@
              
              ';
          }
-        }
         
+    }
         ?>
             </div>
         </div>

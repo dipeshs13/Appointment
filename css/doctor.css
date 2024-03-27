@@ -16,7 +16,7 @@ body{
     top: 0;
     left: 0;
     bottom: 0;
-    width: 260px;
+    width: 280px;
     height: 100vh;
     padding: 0 1.7rem;
     color: #fff;
@@ -43,8 +43,11 @@ body{
     border-radius: 8px;
     transition: all 0.5s ease-in-out;
 }
-.menu li:hover , .active{
-    background: #e0e0e058;
+/* .menu li:hover , .active{ */
+    /* background: #e0e0e058; */
+/* } */
+.menu li:hover{
+    border: 2px solid #fff;
 }
 .menu a{
     color: #fff;
@@ -196,33 +199,87 @@ body{
     letter-spacing: 2px;
     font-family: 'Courier New', Courier, monospace;
 }
+  .hidden {
+        display: none;
+    }
 
-/* color css
-.light-red{
-    background: rgb(251, 233, 233);
-}
-.light-purple{
-    background: rgb(254, 226, 254);
-}
-.light-green{
-    background: rgb(235, 254, 235);
-}
-.light-blue{
-    background: rgb(236, 236, 254);
-}
-.dark-red{
-    background: red;
-}
-.dark-purple{
-    background: purple;
-}
-.dark-green{
-    background: green;
-}
-.dark-blue{
-    background: blue;
-} */
+.blank{
+    display: none;
 
+}
+.comp_appointment{
+    display: none;
+}
+.con_appointment{
+    display: none;
+}
+.pen_appointment{
+    display: none;
+}
+.blank > div{
+    
+    /* border: 2px solid black; */
+    width: 40vw;
+    height: 50vh;
+    /* margin: 40px; */
+    margin-top: 10px;
+    margin-bottom: 10px;
+    position: relative;
+    left: 40%;
+    box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+    border-radius: 20px;
+    
+}
+.blank > div > p{
+  height: 40px;
+  padding: 10px;
+}
+#form_container{
+    box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+    width: 50vw;
+    /* margin: 40px; */
+    margin-top: 5%;
+    margin-left: 30%;
+    height: 25vh;
+    display: grid;
+    grid-template-columns: repeat(2,300px);
+    /* gap: 10px; */
+}
+
+#form_container input{
+    border: 2px solid #777;
+    border-radius: 5px;
+    height: 30px;
+    width: 10vw;
+    /* display: grid; */
+}
+
+#form_container label,input{
+     margin-left: 50%;
+}
+#day{
+
+        padding: 0 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-size: 15px;
+        position: relative;
+        left: 50%;
+}
+#form_container button{
+    background-color: green;
+    width: 40%;
+    height: 70%;
+    border-radius: 90px;
+    padding: 10px;
+    position: relative;
+    left: 105%;
+    color: #fff;
+    font-size: 15px;
+}
+#form_container button:hover{
+    border: 2px solid black;
+}
 /* Tabular  */
 .tabular{
     background: #fff;

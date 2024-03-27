@@ -12,10 +12,33 @@
     
     <div class="container">
         <a href="index.php">Home</a>
+       
         <h2>Set Appointment</h2>
+        
         <form action="includes/appointment.inc.php" id="appointment" method="POST">
             <div class="book_container">
-                
+            <?php
+         require_once 'includes/dbh.inc.php';
+         include 'classes/doctor_scheduledata.php';
+
+         $scheduleinfo = new Doctorscheduleinfo();
+        
+         if(isset($_GET['doctor_id'])){
+            $doctorid = $_GET['doctor_id'];
+            $doctorschedule = $scheduleinfo->schedule($doctorid);
+            if($doctorschedule){
+                foreach($doctorschedule as $key => $doctor) {
+                    $time_from_ampm = date('H:i', strtotime($doctor['time_from']));
+                    $time_to_ampm = date('H:i', strtotime($doctor['time_to']));
+                    echo'
+                    <p id="timefrom">Schedule:'.' '.$doctor['ds_dayfrom'].' - '.$doctor['ds_dayto'].'</p>
+                    <p id="timeto">Time: '.' '.$time_from_ampm.' - '.$time_to_ampm.'</p>
+                    ';
+                }
+            }
+         }
+
+        ?>
                 <div class="book_content">
                 <input type="hidden" name="doctor_id" value="<?php echo isset($_GET['doctor_id']) ? $_GET['doctor_id'] : ''; ?>">
                     <label for="date" class="date-label">Select Date:</label>
@@ -26,10 +49,14 @@
                 <div class="book_content">
                     <label for="time" id="label-time">Select Time:</label>
 
-                    <input type="time" name="time" id="time">
+                    <input type="time" name="time" id="time"
+                    min="<?php echo $time_from_ampm?>"
+                    max="<?php echo $time_to_ampm?>"
+                    required
+                    >
                   
-
-
+                    
+                    
                 </div>
             </div>
             <button type="submit" name="submit" id="book">Book</button>
@@ -72,6 +99,15 @@
         </tbody>
         </Table>
     </div>
+    <!-- <script src="js/script.js"></script> -->
+    <script>
+    let time = document.getElementById('time').value;
+    let timefrom = document.getElementById('timefrom');
+    let timeto = document.getElementById('timeto');
+    
+    
+</script>
+
 </body>
 
 </html>
