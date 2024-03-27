@@ -1,5 +1,9 @@
 <?php
 session_start();
+if (!isset($_SESSION['doctor_id'])) {
+  header("Location: ../doctorlogin.php");
+  exit(); 
+}
 require_once 'includes/dbh.inc.php';
 include 'classes/appointment_classes.php';
 $appointmentinfo = new Appointment();

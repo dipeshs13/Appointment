@@ -11,7 +11,7 @@ if (isset($_POST['submit'])) {
   
     $filename = $_FILES['uploadfile']['name'];
     $tempname = $_FILES['uploadfile']['tmp_name'];
-    $folder = "upload/certificate/" . $filename;
+    $folder = "../upload/certificate/" . $filename;
     move_uploaded_file($tempname, $folder);
 
     // Doctor image

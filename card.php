@@ -8,12 +8,16 @@ $doctors = $d_data->get_Doctor_Data();
 foreach ($doctors as $key => $doctor){
   // $encoded_doctorid = base64_encode($doctor['d_id']);
   $doctor_id = $doctor['d_id'];
+  $doctorimage = $doctor['d_image'];
+  $trimmedDoctorImage = substr($doctorimage, 3);
+  
+  // echo $doctorimage;
      echo '
     <div class="card" id="card-'.($key+1).'">
-    <img src="'.$doctor['d_image'].'" alt="">
+    <img src="'.$trimmedDoctorImage.'" alt="" id="card-image">
     <p class="specilaist">'.$doctor['d_category'].'</p>
     <p class="name">Dr.'.$doctor['d_fullname'].'</p>
-    <a href="Book.php?doctor_id='. $doctor_id.'">Book Now</a>
+    <a href="../Book.php?doctor_id='. $doctor_id.'">Book Now</a>
     </div>
     ';
   }
