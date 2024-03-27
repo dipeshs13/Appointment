@@ -13,14 +13,14 @@ class Appointment_controller extends Appointment{
     }
     public function handle_appointment(){
         if($this->empty()==false){
-            header("location:../appointment.php?emptyinput");
+            header("location:../appointment.php?doctor_id=" . $this->doctorid . 'emptyinput');
             exit();
         }
         if($this->bookAppointment()==false){
-            header("location: ../appointment.php?doctor_id=" . $this->doctorid . "&invaliddate");
+            header("location: ../appointment.php?doctor_id=" . $this->doctorid . '&invaliddate');
             exit();
         }
-     $this->set_appointment($this->doctorid,$this->userid,$this->date,$this->time);
+     $this->request_appointment($this->doctorid,$this->userid,$this->date,$this->time);
     }
     private function empty(){
         $result = true;

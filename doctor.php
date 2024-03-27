@@ -1,3 +1,7 @@
+<?php
+      session_start();
+       require_once 'includes/dbh.inc.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -47,7 +51,6 @@
       </li> -->
 
 <?php
-      session_start();
       if (isset($_SESSION['doctor_id'])) {
         echo '
         <li class="logout">
@@ -157,7 +160,7 @@
       <div>
 
       <?php
-       require_once 'includes/dbh.inc.php';
+      //  require_once 'includes/dbh.inc.php';
        include 'classes/doctor_data.php';
 
        $doctorid = $_SESSION['doctor_id'];
@@ -228,7 +231,25 @@
       <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Facere, nulla?</p>
     </div>
     <div class="pen_appointment">
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque aliquam quisquam odio a necessitatibus. Quisquam architecto dicta ea aliquam cum.</p>
+      <!-- <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque aliquam quisquam odio a necessitatibus. Quisquam architecto dicta ea aliquam cum.</p> -->
+     <?php
+     include 'classes/appointment_classes.php';
+     $appointmentinfo = new Appointment();
+
+     $pending_appointment = $appointmentinfo->get_user_appointment();
+
+     if($pending_appointment){
+
+      foreach ($pending_appointment as $key => $pending) {
+        echo '<p>User ID: ' . $pending['u_id'] . '</p>';
+        echo '<p>Appointment Date: ' . $pending['a_date'] . '</p>';
+        echo '<p>Appointment Time: ' . $pending['a_time'] . '</p>';
+        echo '<p>Appointment status: ' . $pending['status'] . '</p>';
+        # code...
+      }
+     }
+     ?>
+      
     </div>
   <!-- </div> -->
     <!-- </div> -->

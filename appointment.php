@@ -52,7 +52,7 @@
                     <input type="time" name="time" id="time"
                     min="<?php echo $time_from_ampm?>"
                     max="<?php echo $time_to_ampm?>"
-                    required
+                    
                     >
                   
                     
