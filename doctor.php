@@ -3,6 +3,11 @@ session_start();
 require_once 'includes/dbh.inc.php';
 include 'classes/appointment_classes.php';
 $appointmentinfo = new Appointment();
+$confirm_appointments = $appointmentinfo->get_confirmed_appointment();
+$complete_appointments = $appointmentinfo->get_completed_appointment();
+
+include 'classes/user_data.php';
+$userData = new User_data();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -159,26 +164,38 @@ $appointmentinfo = new Appointment();
         <table>
           <thead>
             <tr>
-              <th>Date</th>
+              
               <th>Name</th>
               <th>Phone</th>
               <th>Appointment Date</th>
               <th>Appointment Time</th>
               <th>Status</th>
-              <th>Action</th>
+              
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td>
-                2024-02-20
-              </td>
-              <td>Dipesh Kumar Shrestha</td>
-              <td>9852829419</td>
-              <td>2024-02-26</td>
-              <td>5:00pm - 6:00pm</td>
-              <td>Pending</td>
-              <td><button>Edit</button></td>
+             
+              <?php
+               if($complete_appointments){
+                foreach ($complete_appointments as $key => $complete) {
+                  echo '<tr>';
+                  $userid = $complete['u_id'];
+                  $userinfo = $userData->getUserInfo($userid);
+                  if($userinfo){
+                    foreach ($userinfo as $key => $user) {
+                      echo '<td>'.$user['u_firstname'].'</td>';
+                      echo '<td>'.$user['u_phone'].'</td>';
+                      
+                    }
+                  }
+                  echo '<td>'.$complete['a_date'].'</td>';
+                  echo '<td>' . $complete['a_time'] . '</td>';
+                  echo '<td>' . $complete['status'] . '</td>';
+                  echo '</tr>';
+                }
+               }
+                ?>
             </tr>
           </tbody>
         </table>
@@ -290,27 +307,22 @@ $appointmentinfo = new Appointment();
       <h3>Confirmed Appointments</h3>
       <div class="appointment-list">
         <?php
-        
-        include 'classes/user_data.php';
-        $userData = new User_data();
-
-        $confirm_appointments = $appointmentinfo->get_confirmed_appointment();
+    
         if ($confirm_appointments) {
           foreach ($confirm_appointments as $key => $confirm) {
             $userid = $confirm['u_id'];
             $userinfo = $userData->getUserInfo($userid);
+            if($userinfo){
             foreach ($userinfo as $key => $user) {
               echo '<p><strong>Name: </strong>' . $user['u_firstname'] . ' ' . $user['u_lastname'] . '</p>';
               echo '<p><strong>Phone: </strong>' . $user['u_phone'] . '</p>';
             }
-            echo '<div class="appointment_info">';
+         }
+             echo '<div class="appointment_info">';
             echo '<p><strong>Appointment Date:</strong> ' . $confirm['a_date'] . '</p>';
             echo '<p><strong>Appointment Time:</strong> ' . $confirm['a_time'] . '</p>';
             echo '<p><strong>Appointment Status:</strong> <span class="green-text">' . $confirm['status'] . '</span></p>';
             echo '<a href="doctor.php?a_id=' . $confirm['a_id'] . '&status=completed">Completed</a>';
-
-            
-        
             echo '</div>';
           }
         } else {
@@ -328,20 +340,17 @@ $appointmentinfo = new Appointment();
       <div class="appointment-list">
     <?php
     $appointmentinfo->complete_appointment($appointmentid);
-    $complete_appointments = $appointmentinfo->get_completed_appointment();
+    // $complete_appointments = $appointmentinfo->get_completed_appointment();
         if ($complete_appointments) {
           foreach ($complete_appointments as $key => $complete) {
-            
-            
+            if($userinfo){
               echo '<p><strong>Name: </strong>' . $user['u_firstname'] . ' ' . $user['u_lastname'] . '</p>';
               echo '<p><strong>Phone: </strong>' . $user['u_phone'] . '</p>';
-            
+            } 
             echo '<div class="appointment_info">';
             echo '<p><strong>Appointment Date:</strong> ' . $complete['a_date'] . '</p>';
             echo '<p><strong>Appointment Time:</strong> ' . $complete['a_time'] . '</p>';
             echo '<p><strong>Appointment Status:</strong> <span class="green-text">' . $complete['status'] . '</span></p>';
-    
-        
             echo '</div>';
           }
         } else {
@@ -353,8 +362,7 @@ $appointmentinfo = new Appointment();
       </div>
   </div>
 
-  <!-- </div> -->
-  <!-- </div> -->
+
   <script>
     let dashboard = document.getElementById('dashboard');
     let maincontent = document.getElementsByClassName('main_content')[0];
